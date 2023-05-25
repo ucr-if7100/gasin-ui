@@ -8,26 +8,15 @@ import { AppRoutingModule } from './app-routing.module';
 import { RouterModule, Routes } from '@angular/router';
 import { GastosRoutingModule } from './gastos/gastos-routing.module';
 import { GastosModule } from './gastos/gastos.module';
-
-
-
+import { RegistrarIngresosComponent } from './Ingresos/registrar-ingresos/registrar-ingresos/registrar-ingresos.component';
+import { IngresosModule } from './Ingresos/ingresos.module';
 
 const appRoutes:Routes=[
-
-
-
-
 ]
 
 @NgModule({
   declarations: [
     AppComponent,
-
-
-
-
-
-
   ],
   imports: [
     BrowserModule,
@@ -35,10 +24,8 @@ const appRoutes:Routes=[
     BrowserAnimationsModule,
     AppRoutingModule,
     RouterModule.forRoot(appRoutes),
-    GastosModule
-
-
-
+    GastosModule,
+    IngresosModule
   ],
   providers: [],
   bootstrap: [AppComponent]
