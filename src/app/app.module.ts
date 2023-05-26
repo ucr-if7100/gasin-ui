@@ -6,8 +6,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { RouterModule, Routes } from '@angular/router';
 import { ExpenseModule } from './expense/expense.module';
-import { RegistrarIngresosComponent } from './Ingresos/registrar-ingresos/registrar-ingresos/registrar-ingresos.component';
-import { IngresosModule } from './Ingresos/ingresos.module';
+
+import { IncomeModule } from './income/income.module';
 
 const appRoutes:Routes=[
 ]
@@ -23,7 +23,7 @@ const appRoutes:Routes=[
     AppRoutingModule,
     RouterModule.forRoot(appRoutes),
     ExpenseModule,
-    IngresosModule
+    IncomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]
