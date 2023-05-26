@@ -6,8 +6,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 
 import { RouterModule, Routes } from '@angular/router';
-import { GastosRoutingModule } from './gastos/gastos-routing.module';
-import { GastosModule } from './gastos/gastos.module';
+import { ExpenseModule } from './expense/expense.module';
 
 
 
@@ -35,7 +34,7 @@ const appRoutes:Routes=[
     BrowserAnimationsModule,
     AppRoutingModule,
     RouterModule.forRoot(appRoutes),
-    GastosModule
+    ExpenseModule,
 
 
 

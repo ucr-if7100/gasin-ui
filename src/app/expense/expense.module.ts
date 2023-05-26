@@ -1,28 +1,24 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { GastosRoutingModule } from './gastos-routing.module';
-import { IngresarGastosComponent } from './ingresar-gastos/ingresar-gastos.component';
+import { ExpenseRoutingModule } from './expense-routing.module';
+import { InsertExpenseComponent } from './insert-expense/insert-expense.component';
+import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
-import { FlexLayoutModule } from '@angular/flex-layout';
 
 
 @NgModule({
   declarations: [
-    IngresarGastosComponent,
-
-
+    InsertExpenseComponent
   ],
   imports: [
     CommonModule,
-    GastosRoutingModule,
+    ExpenseRoutingModule,
     MatFormFieldModule,
     MatInputModule,
     FlexLayoutModule
-
   ],
-  exports: [GastosRoutingModule]
-
+  exports: [ExpenseRoutingModule]
 })
-export class GastosModule { }
+export class ExpenseModule { }
