@@ -1,0 +1,32 @@
+.sidebar-container {
+    height: 100%;
+  }
+  
+  mat-sidenav {
+    width: 250px;
+  }
+  
+  mat-sidenav-content {
+    padding: 20px;
+  }
+  
+  .dashboard-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+
+  button {
+    align-self: flex-start;
+  }
+  
+  @media (max-width: 768px) {
+    mat-sidenav {
+      display: none;
+    }
+
+    .dashboard-container {
+        padding-top: 20px;
+    }
+  }
+  

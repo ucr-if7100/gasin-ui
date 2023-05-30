@@ -1,0 +1,87 @@
+.dashboard-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.accounts-container {
+    margin-bottom: 20px;
+}
+
+.transactions-container {
+    width: 100%;
+    max-width: 800px;
+}
+
+h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.account-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.account-card {
+    width: 200px;
+    margin: 10px;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+}
+
+.account-info {
+    flex: 1;
+}
+
+.account-card.green {
+    background-color: #4caf50;
+}
+
+.account-card.orange {
+    background-color: #ff9800;
+}
+
+.account-card.red {
+    background-color: #f44336;
+}
+
+.add-account-btn {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.transactions-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.transactions-table th,
+.transactions-table td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #dddddd;
+}
+
+.transactions-table th {
+    font-weight: bold;
+}
+
+.transactions-table .income {
+    color: green;
+}
+
+.transactions-table .expense {
+    color: red;
+}
