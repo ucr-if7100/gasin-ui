@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {Router} from '@angular/router'
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'gasin-ui';
+  public links = [
+    {name: 'Inicio', href: '/', icon: 'dashboard'},
+    {name: 'Transacciones', href: '/table', icon: 'assignment'}
+    ];
 }
