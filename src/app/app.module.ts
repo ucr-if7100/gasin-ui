@@ -10,6 +10,7 @@ import { ExpenseModule } from './expense/expense.module';
 import { IncomeModule } from './income/income.module';
 import { InsertUserComponent } from './user/insert-user/insert-user.component';
 import { UserModule } from './user/user.module';
+import { CategoryModule } from './category/category.module';
 
 const appRoutes:Routes=[
 ]
@@ -17,7 +18,7 @@ const appRoutes:Routes=[
 @NgModule({
   declarations: [
     AppComponent,
-   
+
   ],
   imports: [
     BrowserModule,
@@ -27,8 +28,9 @@ const appRoutes:Routes=[
     RouterModule.forRoot(appRoutes),
     ExpenseModule,
     IncomeModule,
-    UserModule
-   
+    UserModule,
+    CategoryModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]

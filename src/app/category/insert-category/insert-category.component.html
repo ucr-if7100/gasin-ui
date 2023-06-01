@@ -1,0 +1,50 @@
+<div
+  class="modificar-container"
+  fxLayout="column"
+  fxLayoutAlign="center center"
+  fxLayoutGap="3rem"
+>
+
+  <h1 class="section-heading text-uppercase " style="color: green;" >Registro de Categoria</h1>
+
+  <div fxLayout="row" fxLayoutAlign="center none" fxLayoutGap="10rem">
+    <div
+      fxLayout="column"
+      fxLayoutAlign="space-evenly start"
+      fxLayoutGap="8rem"
+    >
+      <div fxLayout="row" fxLayoutGap="10rem">
+        <mat-form-field  class="imput-data">
+          <mat-label>Nombre</mat-label>
+          <input matInput formControlName="email"/>
+        </mat-form-field>
+
+        <mat-form-field  class="imput-data">
+          <mat-label>Descripcion</mat-label>
+          <input matInput formControlName="name" />
+        </mat-form-field>
+      </div>
+
+
+    </div>
+  </div>
+
+  <div
+    fxLayout="row"
+    fxLayoutGap="30rem"
+    fxLayoutAlign="center center"
+  >
+    <button
+    class="btnGuardar"
+     type="submit"
+      mat-raised-button
+      color="primary"
+      aria-label="Example icon button with a menu icon"
+    >
+      Guardar
+    </button>
+
+  </div>
+
+</div>
+
