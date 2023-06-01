@@ -8,6 +8,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { ExpenseModule } from './expense/expense.module';
 
 import { IncomeModule } from './income/income.module';
+import { InsertUserComponent } from './user/insert-user/insert-user.component';
+import { UserModule } from './user/user.module';
 
 const appRoutes:Routes=[
 ]
@@ -15,6 +17,7 @@ const appRoutes:Routes=[
 @NgModule({
   declarations: [
     AppComponent,
+   
   ],
   imports: [
     BrowserModule,
@@ -23,7 +26,9 @@ const appRoutes:Routes=[
     AppRoutingModule,
     RouterModule.forRoot(appRoutes),
     ExpenseModule,
-    IncomeModule
+    IncomeModule,
+    UserModule
+   
   ],
   providers: [],
   bootstrap: [AppComponent]
