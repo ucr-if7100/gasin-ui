@@ -12,7 +12,7 @@ export class InsertUserComponent implements OnInit {
   userForm: FormGroup = new FormGroup({});
 
   constructor(private fb: FormBuilder,private rest:UserService) {
-    
+
    }
 
   ngOnInit(): void {
@@ -24,9 +24,9 @@ export class InsertUserComponent implements OnInit {
     });
   }
 
-  
+
   add() {
-    
+
     if (!this.userForm.valid) {
       Swal.fire({
         icon: 'error',
@@ -37,6 +37,7 @@ export class InsertUserComponent implements OnInit {
     }
 
     return this.rest.add(this.userForm.value).subscribe((result) => {
+
       this.userForm = this.fb.group({
         email: [''],
         name: [''],
@@ -57,4 +58,4 @@ export class InsertUserComponent implements OnInit {
     });
   }
 
-} 
+}
