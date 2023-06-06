@@ -25,6 +25,9 @@ export class CategoryService {
     return this.http.post(Endpoint+'/',category,httpOptions)
   }
 
+  get(){
+    return this.http.get(Endpoint+'/GetCategory',httpOptions)
+  }
 
 }
 
