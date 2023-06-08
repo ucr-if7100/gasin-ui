@@ -31,7 +31,7 @@ export class InsertUserComponent implements OnInit {
       Swal.fire({
         icon: 'error',
         title: 'Oops...',
-        text: 'Something went wrong!',
+        text: 'Algo salió mal!',
       });
       return;
     }
@@ -45,15 +45,15 @@ export class InsertUserComponent implements OnInit {
         username: ['']
       });
       Swal.fire(
-        'Good job!',
-        'User added sucessfully!',
+        'Buen trabajo!',
+        'Usuario añadido con éxito!',
         'success'
       )
     }, (err) => {
       Swal.fire({
         icon: 'error',
         title: 'Oops...',
-        text: 'Something went wrong!',
+        text: 'Algo salió mal!',
       });
     });
   }

@@ -1,9 +1,10 @@
+  <form  [formGroup]="userForm" (ngSubmit)="add()" action="#" class="border rounded p-2 form">
 <div
   class="modificar-container"
   fxLayout="column"
+  
   fxLayoutAlign="center center"
 >
-  <form  [formGroup]="userForm" (ngSubmit)="add()" action="#" class="border rounded p-2 form">
   <h1 class="section-heading text-uppercase">Registro de Usuarios</h1>
 
   <div fxLayout="row" fxLayoutAlign="center none" fxLayoutGap="8rem">
@@ -35,6 +36,15 @@
           <input matInput formControlName="username"/>
         </mat-form-field>
       </div>
+
+      <div fxLayout="row" fxLayoutGap="8rem">
+        <mat-form-field  class="imput-data">
+          <mat-label>Contraseña</mat-label>
+          <input matInput type="password" />
+        </mat-form-field>
+
+        
+      </div>
     </div>
   </div>
 
@@ -44,6 +54,7 @@
     fxLayoutGap="8rem"
     fxLayoutAlign="center center"
   >
+</div>
     <button
      type="submit"
       mat-raised-button
@@ -54,4 +65,4 @@
     </button>
   </div>
 </form>
-</div>
+
