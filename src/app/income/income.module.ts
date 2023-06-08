@@ -8,6 +8,10 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { InsertIncomeComponent } from './insert-income/insert-income.component';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { ReactiveFormsModule } from '@angular/forms'; //
 
 
 @NgModule({
@@ -24,6 +28,10 @@ import { InsertIncomeComponent } from './insert-income/insert-income.component';
     FlexLayoutModule,
     MatIconModule,
     MatButtonModule ,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    BrowserModule,
+    ReactiveFormsModule
   ],
   exports: [IncomeRoutingModule]
 
