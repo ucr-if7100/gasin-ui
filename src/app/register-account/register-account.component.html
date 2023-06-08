@@ -42,7 +42,7 @@
         <div class="col-md-6">
           <mat-form-field class="full-width">
             <mat-label>Saldo en la cuenta</mat-label>
-            <input formControlName="balance" matInput type="number" placeholder="Ex: 0.0">
+            <input formControlName="balance" matInput type="number" min="0" placeholder="Ex: 0.0">
             <mat-icon matSuffix>attach_money</mat-icon>
             <mat-error *ngIf="hasError('balance', 'required')">Este campo es requerido</mat-error>
           </mat-form-field>
@@ -53,7 +53,7 @@
         <div class="col-md-6">
           <mat-form-field class="full-width">
             <mat-label>Últimos cuatro dígitos de la tarjeta</mat-label>
-            <input formControlName="lastFourDigits" matInput type="number" decimals="0" placeholder="Ex: 3241">
+            <input formControlName="lastFourDigits" matInput type="number" decimals="0" min="0" max="9999" placeholder="Ex: 3241">
             <mat-icon matSuffix>credit_card</mat-icon>
             <mat-error *ngIf="hasError('lastFourDigits', 'required')">Este campo es requerido</mat-error>
           </mat-form-field>
@@ -61,7 +61,7 @@
         <div class="col-md-6">
           <mat-form-field class="full-width">
             <mat-label>Sinpe móvil</mat-label>
-            <input formControlName="phone" matInput type="number" placeholder="Ex: 88888888">
+            <input formControlName="phone" matInput type="number" min="0" placeholder="Ex: 88888888">
             <mat-icon matSuffix>phonelink_ring</mat-icon>
             <mat-error *ngIf="hasError('phone', 'required')">Este campo es requerido</mat-error>
           </mat-form-field>
