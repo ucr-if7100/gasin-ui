@@ -1,5 +1,5 @@
 import { Component  } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import { CommonModule  } from '@angular/common';
 import { FormBuilder, FormsModule, ReactiveFormsModule, FormGroup, Validators  } from '@angular/forms';
 import {MatIconModule} from '@angular/material/icon';
 import { MatCardModule } from '@angular/material/card';
@@ -8,6 +8,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { RouterModule } from "@angular/router";
 
 @Component({
   selector: 'app-register-account',
@@ -15,7 +16,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
   styleUrls: ['./register-account.component.css'],
   standalone: true,
   imports: [
-    BrowserModule,
+    CommonModule,
     FormsModule,
     ReactiveFormsModule,
     MatFormFieldModule,
@@ -23,7 +24,8 @@ import { MatSnackBar } from '@angular/material/snack-bar';
     MatInputModule,
     MatSelectModule,
     MatCardModule,
-    MatButtonModule
+    MatButtonModule,
+    RouterModule
   ]
 })
 export class RegisterAccountComponent {
@@ -47,12 +49,6 @@ export class RegisterAccountComponent {
       alert('Tu cuenta ha sido registrada correctamente!');
     }
   }
-
-  public onCancel() {
-    this.account.reset();
-    //this.router.navigate(['/']); // ir atras
-  }
-
 
   public hasError = (controlName: string, errorName: string) =>{
     return this.account.controls[controlName].hasError(errorName);
