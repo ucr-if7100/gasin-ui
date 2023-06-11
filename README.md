@@ -25,3 +25,13 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+## Command install
+- npm install
+- ng add @angular/material
+- npm install @angular/flexlayout
+- npm i @angular/flex-layout 
+- npm install moment
+- npm install react
+- npm i --save-dev @types/react
+- pip install pywebview

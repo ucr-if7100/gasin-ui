@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Category } from 'src/app/domain/category/category';
 import { CategoryService } from 'src/app/services/category-service/category.service';
 import Swal from 'sweetalert2';
 
@@ -13,11 +14,15 @@ export class InsertCategoryComponent {
 
   CategoryForm: FormGroup = new FormGroup({});
 
+  dataCategory:Category={ }
+
   constructor(private fb: FormBuilder,private rest:CategoryService) {
 
    }
 
   ngOnInit(): void {
+
+
     this.CategoryForm = this.fb.group({
       id: 1,
       name: ['', Validators.required],
@@ -25,7 +30,13 @@ export class InsertCategoryComponent {
       id_User: [1]
 
     });
+
+
+
+
   }
+
+
 
 
   add() {
@@ -39,7 +50,16 @@ export class InsertCategoryComponent {
       return;
     }
 
-    return this.rest.add(this.CategoryForm.value).subscribe((result) => {
+        // Obtén los valores del formulario
+  //const formValues = this.CategoryForm.value;
+
+// Crea el objeto de categoría usando los valores del formulario
+  this.dataCategory =this.CategoryForm.value;
+
+    console.log(this.dataCategory)
+    console.log(this.CategoryForm.value)
+
+    return this.rest.add(this.dataCategory).subscribe((result) => {
 
       this.CategoryForm = this.fb.group({
 
@@ -49,7 +69,7 @@ export class InsertCategoryComponent {
       });
       Swal.fire(
         'Good job!',
-        'User added sucessfully!',
+        'Categoria añadido con éxito!',
         'success'
       )
     }, (err) => {

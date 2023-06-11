@@ -4,7 +4,7 @@ import { Injectable } from '@angular/core';
 import { catchError, Observable, of, tap } from 'rxjs';
 
 
-const Endpoint='http://localhost:8084/api/Transaction';
+const Endpoint='http://localhost:8085/api/Category';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -22,11 +22,11 @@ export class CategoryService {
   }
 
   add(category:any){
-    return this.http.post(Endpoint+'/',category,httpOptions)
+    return this.http.post(Endpoint+'/insert',category,httpOptions)
   }
 
   get(){
-    return this.http.get(Endpoint+'/GetCategory',httpOptions)
+    return this.http.get(Endpoint+'/get',httpOptions)
   }
 
 }

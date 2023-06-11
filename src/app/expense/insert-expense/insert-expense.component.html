@@ -1,84 +1,79 @@
 
 <div class="modificar-container" fxLayout="column" fxLayoutAlign="center center" >
-  <h1 class="section-heading text-uppercase " style="color: green;">Registrar Gasto</h1>
+  <h1 class="section-heading text-uppercase " style="color: green;" >Registro de Gastos</h1>
   <br><br>
-
-  <!--form class="ofertaLaboral-form" -->
-
-
-  <div  fxLayout="row" fxLayoutAlign="center none" fxLayoutGap="8rem">
-
-
-      <div  fxLayout="column"  fxLayoutAlign="space-evenly start" fxLayoutGap="1rem"  >
+  <form  [formGroup]="expenseForm" (ngSubmit)="add()" action="#" class="border rounded p-2 form">
 
 
 
-        <div fxLayout="row" fxLayoutGap="8rem" >
-          <mat-form-field class="imput-data">
-            <mat-label>Monto</mat-label>
-            <input matInput >
-           </mat-form-field>
+    <div  fxLayout="row" fxLayoutAlign="center none" fxLayoutGap="8rem">
 
-          <mat-form-field class="imput-data" >
-           <mat-label>Descripcion</mat-label>
-           <input matInput  >
-          </mat-form-field>
 
-      </div>
+        <div  fxLayout="column"  fxLayoutAlign="space-evenly start" fxLayoutGap="1rem"  >
 
-            <div fxLayout="row" fxLayoutGap="8rem" >
 
-              <form [formGroup]="tuFormulario"  fxLayout="row" fxLayoutGap="8rem">
+
+          <div fxLayout="row" fxLayoutGap="8rem" >
+
+              <mat-form-field class="imput-data">
+                <mat-label>Monto</mat-label>
+                <input matInput formControlName="amount" type="number">
+              </mat-form-field>
+
+
+
+            <mat-form-field class="imput-data" >
+            <mat-label>Descripción</mat-label>
+            <input matInput formControlName="description" />
+            </mat-form-field>
+
+          </div>
+
+              <div fxLayout="row" fxLayoutGap="8rem" >
+
                 <mat-form-field appearance="fill" class="imput-data">
                   <mat-label>Referencia</mat-label>
-                  <input matInput formControlName="referencia">
+                  <input matInput formControlName="numRefBank">
                 </mat-form-field>
-                <mat-form-field appearance="fill" class="imput-data">
-                  <mat-label>Seleccionar opción</mat-label>
-                  <mat-select formControlName="selectedOption">
-                    <mat-option *ngFor="let categoria of data_category" [value]="categoria.name">{{ categoria.name }}</mat-option>
-                  </mat-select>
-                </mat-form-field>
-              </form>
+
+
+
+                  <mat-form-field appearance="fill" class="imput-data">
+                    <mat-label>Categoría</mat-label>
+                    <mat-select formControlName="idCategory">
+                      <mat-option *ngFor="let categoria of data_category" [value]="categoria">{{ categoria.name }}</mat-option>
+                    </mat-select>
+                  </mat-form-field>
+
+
+              </div>
+
+
+          <div fxLayout="row" fxLayoutGap="8rem" fxLayoutAlign="center none">
+
+
+
+            <mat-form-field class="imput-data">
+              <mat-label>Fecha</mat-label>
+              <input matInput [matDatepicker]="picker"  formControlName="date">
+              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+
+            <div fxLayout="row"  fxLayoutGap="8rem" fxLayoutAlign="center center" class="imput-data">
+              <button class="btnGuardar" type="submit" mat-raised-button color="primary" aria-label="Example icon button with a menu icon">
+                Guardar
+              </button>
+
 
             </div>
 
 
-        <div fxLayout="row" fxLayoutGap="8rem" fxLayoutAlign="center none">
-
-
-
-          <mat-form-field class="imput-data">
-            <mat-label>Fecha</mat-label>
-            <input matInput [matDatepicker]="picker" >
-            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-            <mat-datepicker #picker></mat-datepicker>
-          </mat-form-field>
-
-          <div fxLayout="row"  fxLayoutGap="8rem" fxLayoutAlign="center center" >
-            <button class="btnGuardar" type="submit" mat-raised-button color="primary" aria-label="Example icon button with a menu icon">
-              Guardar
-            </button>
-
-
-          </div>
-
-
         </div>
-
-
-</div>
-
-
-
-
-
+     </div>
 
   </div>
-
-
-
-
+</form>
 
 
 </div>
