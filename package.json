@@ -1,6 +1,6 @@
 {
   "name": "gasin-ui",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -17,7 +17,8 @@
     "@angular/core": "^16.0.0",
     "@angular/flex-layout": "^15.0.0-beta.42",
     "@angular/forms": "^16.0.0",
-    "@angular/material": "^16.0.1",
+
+    "@angular/material": "^16.0.2",
     "@angular/platform-browser": "^16.0.0",
     "@angular/platform-browser-dynamic": "^16.0.0",
     "@angular/router": "^16.0.0",
