@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { User } from 'src/app/domain/user/user';
 import { UserService } from 'src/app/services/user-service/user.service';
 import Swal from 'sweetalert2';
 
@@ -10,9 +11,15 @@ import Swal from 'sweetalert2';
 })
 export class InsertUserComponent implements OnInit {
   userForm: FormGroup = new FormGroup({});
-
+  dataUser:User={
+     id:0,
+      email:'',
+      name:'',
+      lastname:'',
+      username:'', 
+  }
+  
   constructor(private fb: FormBuilder,private rest:UserService) {
-
    }
 
   ngOnInit(): void {
@@ -35,8 +42,9 @@ export class InsertUserComponent implements OnInit {
       });
       return;
     }
+    this.dataUser=this.userForm.value;
 
-    return this.rest.add(this.userForm.value).subscribe((result) => {
+    return this.rest.add(this.dataUser).subscribe((result) => {
 
       this.userForm = this.fb.group({
         email: [''],
