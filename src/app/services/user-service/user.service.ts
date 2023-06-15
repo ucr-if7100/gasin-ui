@@ -24,4 +24,8 @@ export class UserService {
   add(user:User){
     return this.http.post(Endpoint+'/insert',user,httpOptions)
   }
+
+  get():Observable<any>{
+    return this.http.get(Endpoint+'/GetUser',httpOptions)
+  }
 }

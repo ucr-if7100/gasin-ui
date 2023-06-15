@@ -10,10 +10,21 @@ import { UserRoutingModule } from './user-routing.module';
 import { InsertUserComponent } from './insert-user/insert-user.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { SearchUserComponent } from './search-user/search-user.component';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatSelectModule } from '@angular/material/select';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatCardModule } from '@angular/material/card';
+
+import { MatStepperModule } from '@angular/material/stepper';
+import {MatTabsModule} from '@angular/material/tabs';
+import { MatTableModule } from '@angular/material/table';
 
 @NgModule({
   declarations: [
-    InsertUserComponent
+    InsertUserComponent,
+    SearchUserComponent
   ],
   imports: [
     CommonModule,
@@ -24,7 +35,25 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
     MatButtonModule ,
     UserRoutingModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    CommonModule,
+
+    MatFormFieldModule,
+    MatInputModule,
+    FlexLayoutModule,
+    MatIconModule,
+    MatButtonModule ,
+    ReactiveFormsModule,
+    HttpClientModule,
+    MatPaginatorModule,
+    MatStepperModule,
+    MatDatepickerModule,
+    MatSelectModule,
+    MatIconModule,
+    MatDividerModule,
+    MatCardModule,
+    MatTabsModule,
+    MatTableModule
 
   ],exports: [UserRoutingModule]
 })
