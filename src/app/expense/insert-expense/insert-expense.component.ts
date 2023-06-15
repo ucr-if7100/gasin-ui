@@ -113,7 +113,7 @@ add() {
       type: ['G', Validators.required],
       idCategory:[, Validators.required],
       idAccount:[1],
-      idUser:[1],
+      id_user:[1],
       numRefBank:['']
     });
     Swal.fire(

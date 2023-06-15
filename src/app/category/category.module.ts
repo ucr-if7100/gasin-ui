@@ -10,11 +10,22 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
+import { SearchCategoryComponent } from './search-category/search-category/search-category.component';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatSelectModule } from '@angular/material/select';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatCardModule } from '@angular/material/card';
+
+import { MatStepperModule } from '@angular/material/stepper';
+import {MatTabsModule} from '@angular/material/tabs';
+import { MatTableModule } from '@angular/material/table';
 
 
 @NgModule({
   declarations: [
-    InsertCategoryComponent
+    InsertCategoryComponent,
+    SearchCategoryComponent
   ],
   imports: [
     CommonModule,
@@ -25,7 +36,17 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatIconModule,
     MatButtonModule ,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    MatPaginatorModule,
+    MatStepperModule,
+    MatDatepickerModule,
+    MatSelectModule,
+    MatIconModule,
+    MatDividerModule,
+    MatCardModule,
+    MatTabsModule,
+    MatTableModule
+
   ],
   exports: [CategoryRoutingModule]
 })

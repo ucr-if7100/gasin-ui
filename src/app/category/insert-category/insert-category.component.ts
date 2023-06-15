@@ -27,7 +27,7 @@ export class InsertCategoryComponent {
       id: 1,
       name: ['', Validators.required],
       description: ['', Validators.required],
-      id_User: [1]
+      id_user: [1]
 
     });
 
