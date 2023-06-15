@@ -22,6 +22,6 @@ export class UserService {
   }
 
   add(user:User){
-    return this.http.post(Endpoint+'/',user,httpOptions)
+    return this.http.post(Endpoint+'/insert',user,httpOptions)
   }
 }
