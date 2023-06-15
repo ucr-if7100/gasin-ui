@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDatepickerInputEvent } from '@angular/material/datepicker';
 import * as moment from 'moment';
+import { Income } from 'src/app/domain/income/income';
 import { TransactionService } from 'src/app/services/transaction-service/transaction.service';
 import Swal from 'sweetalert2';
 @Component({
@@ -16,6 +17,18 @@ export class InsertIncomeComponent implements OnInit {
   incomeForm: FormGroup = new FormGroup({});
   date: any;
   hour: any;
+
+  dataIncome:Income={
+    description: '',
+    amount: 0,
+    date: [''],
+    type: ['I'],
+    idAccount:[1],
+    idUser:[1],
+    numRefBank:['N/A'],
+  }
+
+
   constructor(private fb: FormBuilder,private rest:TransactionService) {
    }
   
@@ -39,18 +52,20 @@ export class InsertIncomeComponent implements OnInit {
     var combinedDateTime = this.date ;
     this.incomeForm.patchValue({ date: combinedDateTime });
     console.log(this.incomeForm.value)
+
+    
   
     if (!this.incomeForm.valid) {
       Swal.fire({
         icon: 'error',
         title: 'Oops...',
-        text: 'Something went wrong!',
+        text: 'Algo salió mal !',
       });
       return;
     }
-    
+    this.dataIncome=this.incomeForm.value;
 
-    return this.rest.add(this.incomeForm.value).subscribe((result) => {
+    return this.rest.add(this.dataIncome).subscribe((result) => {
 
       this.incomeForm = this.fb.group({
         description: ['', [Validators.required, Validators.email]],
@@ -63,7 +78,7 @@ export class InsertIncomeComponent implements OnInit {
       });
       Swal.fire(
         'Buen trabajo!',
-        'Ingresos añadido con éxito!',
+        'Ingreso añadido con éxito!',
         'success'
       )
     }, (err) => {

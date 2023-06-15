@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { catchError, Observable, of, tap } from 'rxjs';
+import { Income } from 'src/app/domain/income/income';
 
 
 const Endpoint='http://localhost:8085/api/Transaction';
@@ -19,7 +20,7 @@ export class TransactionService {
   constructor(private http: HttpClient){
   }
 
-  add(user:any){
+  add(user:Income){
     return this.http.post(Endpoint+'/insert',user,httpOptions)
   }
 }
