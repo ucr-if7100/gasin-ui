@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { AfterViewInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
+import { CategoryService } from 'src/app/services/category-service/category.service';
 
 
 @Component({
@@ -18,30 +19,43 @@ export class SearchCategoryComponent implements AfterViewInit {
   dataSource = new MatTableDataSource();
 
 
+
   displayedColumns: string[] = [
     'name',
-    'capacity',
-    'province',
-    'city',
-    'district',
-    'action',
+    'description',
+    'action'
+
   ];
+
+  constructor(private service_category:CategoryService) {
+
+  }
+
+
+  ngOnInit(): void {
+    this.get();
+  }
+
 
 
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
   }
 
-  getParking() {
-    //const cookie: string = this.cookieService.get('token');
-    //this.rest.parkingHeredia(cookie).subscribe((data2: any) => {
-     // this.dataSource.data = data2;
-    }
+  get() {
+    this.service_category.get().subscribe((data: any) => {
+      this.dataSource.data = data;
+      console.log(data)
+    })
+  }
 
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
+
+
+
 
 
 }

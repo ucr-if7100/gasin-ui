@@ -20,12 +20,16 @@ import { MatCardModule } from '@angular/material/card';
 import { MatStepperModule } from '@angular/material/stepper';
 import {MatTabsModule} from '@angular/material/tabs';
 import { MatTableModule } from '@angular/material/table';
+import { UpdateCategoryComponent } from './update-category/update-category/update-category.component';
+import { DeleteCategoryComponent } from './delete-category/delete-category/delete-category.component';
 
 
 @NgModule({
   declarations: [
     InsertCategoryComponent,
-    SearchCategoryComponent
+    SearchCategoryComponent,
+    UpdateCategoryComponent,
+    DeleteCategoryComponent
   ],
   imports: [
     CommonModule,

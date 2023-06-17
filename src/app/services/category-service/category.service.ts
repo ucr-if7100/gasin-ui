@@ -29,6 +29,18 @@ export class CategoryService {
     return this.http.get(Endpoint+'/get',httpOptions)
   }
 
+  getId(id:any){
+    return this.http.get(Endpoint+'/getCategory/'+id,httpOptions)
+  }
+
+
+  update(id:any,category:any){
+    return this.http.put(Endpoint+'/update/'+id,category,httpOptions)
+  }
+
+  delete(id:any){
+    return this.http.delete(Endpoint+'/delete/'+id,httpOptions)
+  }
 }
 
 
