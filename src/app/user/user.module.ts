@@ -24,7 +24,7 @@ import { DeleteUserComponent } from './delete-user/delete-user.component';
 import { UpdateUserComponent } from './update-user/update-user.component';
 import { SeeUserComponent } from './see-user/see-user.component';
 import { ProfileUserComponent } from './profile-user/profile-user.component';
-
+import { FormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     InsertUserComponent,
@@ -61,7 +61,8 @@ import { ProfileUserComponent } from './profile-user/profile-user.component';
     MatDividerModule,
     MatCardModule,
     MatTabsModule,
-    MatTableModule
+    MatTableModule,
+    FormsModule
 
   ],exports: [UserRoutingModule]
 })
