@@ -20,11 +20,19 @@ import { MatCardModule } from '@angular/material/card';
 import { MatStepperModule } from '@angular/material/stepper';
 import {MatTabsModule} from '@angular/material/tabs';
 import { MatTableModule } from '@angular/material/table';
+import { DeleteUserComponent } from './delete-user/delete-user.component';
+import { UpdateUserComponent } from './update-user/update-user.component';
+import { SeeUserComponent } from './see-user/see-user.component';
+import { ProfileUserComponent } from './profile-user/profile-user.component';
 
 @NgModule({
   declarations: [
     InsertUserComponent,
-    SearchUserComponent
+    SearchUserComponent,
+    DeleteUserComponent,
+    UpdateUserComponent,
+    SeeUserComponent,
+    ProfileUserComponent
   ],
   imports: [
     CommonModule,

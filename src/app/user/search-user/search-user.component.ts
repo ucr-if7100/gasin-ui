@@ -38,6 +38,7 @@ export class SearchUserComponent implements OnInit,AfterViewInit {
   get() {
     this.rest.get().subscribe((data: any) => {
       this.dataSource.data = data;
+      console.log(data)
     })
   }
 
