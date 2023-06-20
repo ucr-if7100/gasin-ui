@@ -24,8 +24,8 @@ export class SidebarComponent implements AfterViewInit, OnDestroy {
   }
 
   ngAfterViewInit() {
-    this.sidenav.opened = this.isSidebarOpen;
-    this.sidenav.mode = this.sidebarMode;
+    //this.sidenav.opened = this.isSidebarOpen;
+    //this.sidenav.mode = this.sidebarMode;
 
     this.resizeSubscription = window.addEventListener('resize', () => {
       if (this.isMobile() && !this.isSidebarOpen) {
