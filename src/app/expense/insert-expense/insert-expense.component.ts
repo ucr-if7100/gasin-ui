@@ -28,7 +28,7 @@ export class InsertExpenseComponent {
     description: "",
     amount: 0,
     date:"",
-    type: 'G',
+    type: 'GASTO',
     idCategory:0,
     idAccount:1,
     idUser:1,
@@ -63,7 +63,7 @@ export class InsertExpenseComponent {
       description: ['', Validators.required],
       amount: [0, Validators.required],
       date: ['', Validators.required],
-      type: ['G', Validators.required],
+      type: ['GASTO', Validators.required],
       idCategory:[0, Validators.required],
       idAccount:[1],
       idUser:[1],
@@ -83,8 +83,9 @@ export class InsertExpenseComponent {
 add() {
 
   //+ 'T' + this.hour + ':00.000Z'
-  var combinedDateTime = this.date ;
+  //var combinedDateTime = this.date ;
 
+  console.log(this.expenseForm.value)
 
   //this.expenseForm.patchValue({ date: combinedDateTime });
 
@@ -93,7 +94,7 @@ add() {
     Swal.fire({
       icon: 'error',
       title: 'Oops...',
-      text: 'Something went wrong!',
+      text: 'Faltan datos!',
     });
     return;
   }
@@ -110,10 +111,10 @@ add() {
       description: ['', Validators.required],
       amount: [0, Validators.required],
       date: ['', Validators.required],
-      type: ['G', Validators.required],
+      type: ['GASTO', Validators.required],
       idCategory:[, Validators.required],
       idAccount:[1],
-      id_user:[1],
+      idUser:[1],
       numRefBank:['']
     });
     Swal.fire(
