@@ -28,4 +28,12 @@ export class UserService {
   get():Observable<any>{
     return this.http.get(Endpoint+'/GetUser',httpOptions)
   }
+
+  getById(id:any):Observable<any>{
+    return this.http.get(Endpoint+'/GetUser/'+id,httpOptions)
+  }
+
+  update(id:any,user:any){
+    return this.http.put(Endpoint+'/update/'+id,user,httpOptions)
+  }
 }

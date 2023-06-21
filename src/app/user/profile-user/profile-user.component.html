@@ -1,0 +1,35 @@
+  <h2>Perfil de <p>{{ user.name }}</p></h2>
+  <div class="container">
+    <mat-card class="card">
+      <mat-card-content>
+        <mat-form-field class="input-field">
+          <mat-label>Nombre</mat-label>
+          <input matInput [value]="user.name"
+          [(ngModel)]="user.name">
+        </mat-form-field>
+  
+        <mat-form-field class="input-field">
+          <mat-label>Apellido</mat-label>
+          <input matInput [value]="user.lastname"
+          [(ngModel)]="user.lastname">
+          
+        </mat-form-field>
+  
+        <mat-form-field class="input-field">
+          <mat-label>Email</mat-label>
+          <input matInput [value]="user.email"
+          [(ngModel)]="user.email">
+        </mat-form-field>
+  
+        <mat-form-field class="input-field">
+          <mat-label>Nombre de usuario</mat-label>
+          <input matInput [value]="user.username" 
+          [(ngModel)]="user.username">
+        </mat-form-field>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-button color="primary" (click)="saveChanges()">Guardar cambios</button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+  

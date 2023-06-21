@@ -22,7 +22,7 @@ export class InsertIncomeComponent implements OnInit {
     description: '',
     amount: 0,
     date: [''],
-    type: ['I'],
+    type: ['INGRESO'],
     idAccount:[1],
     idUser:[1],
     numRefBank:['N/A'],
@@ -38,7 +38,7 @@ export class InsertIncomeComponent implements OnInit {
       description: ['', [Validators.required]],
       amount: [0, Validators.required],
       date: [''],
-      type: ['I'],
+      type: ['INGRESO'],
       idAccount:[1],
       idUser:[1],
       numRefBank:['N/A'],
@@ -47,8 +47,7 @@ export class InsertIncomeComponent implements OnInit {
   }
 
   add() {
-   
-    //+ 'T' + this.hour + ':00.000Z'
+ //  + "T" + this.hour + ':00.000Z'
     var combinedDateTime = this.date ;
     this.incomeForm.patchValue({ date: combinedDateTime });
     console.log(this.incomeForm.value)
@@ -71,9 +70,9 @@ export class InsertIncomeComponent implements OnInit {
         description: ['', [Validators.required, Validators.email]],
         amount: ['', Validators.required],
         date: ['', Validators.required],
-        type: ['I', Validators.required],
-        idAccount:['1'],
-        idUser:['1'],
+        type: ['INGRESO', Validators.required],
+        idAccount:[1],
+        idUser:[1],
         numRefBank:['']
       });
       Swal.fire(
