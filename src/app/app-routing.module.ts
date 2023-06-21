@@ -1,15 +1,19 @@
 import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
-import { DashboardComponent } from "./dashboard/dashboard.component";
-import { RegisterAccountComponent } from "./register-account/register-account.component";
 import { EmailForwardingComponent } from "./help/email-forwarding/email-forwarding.component";
+import { DashboardComponent } from "./components/dashboard/dashboard.component";
+import { RegisterAccountComponent } from "./components/register-account/register-account.component";
+import { EditAccountComponent } from "./components/edit-account/edit-account.component";
 
 const routes: Routes = [
     {path: '', redirectTo: '/dashboard', pathMatch: 'full'},
     {path: 'dashboard', component: DashboardComponent},
-    //{path: 'transactions', component: DashboardComponent}, //change the component when ready
+    {path: 'emailForwarding', component: EmailForwardingComponent},
+    {path: 'profile', component: DashboardComponent},
+    {path: 'transactions', component: DashboardComponent},
+    {path: 'accounts', component: DashboardComponent},
     {path: 'addAccount', component: RegisterAccountComponent},
-    {path: 'emailForwarding', component: EmailForwardingComponent}
+    {path: 'editAccount/:accountId', component: EditAccountComponent}
 ];
 
 @NgModule({

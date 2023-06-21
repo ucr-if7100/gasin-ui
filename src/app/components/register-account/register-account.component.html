@@ -9,10 +9,21 @@
 
     <mat-card-content>
       <div class="row">
+        <div class="col-12">
+          <mat-form-field class="full-width">
+            <mat-label>Cuenta IBAN</mat-label>
+            <input formControlName="iban" matInput>
+            <mat-icon matSuffix>account_balance_wallet</mat-icon>
+            <mat-error *ngIf="hasError('iban', 'required')">Este campo es requerido</mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div class="row">
         <div class="col-md-6">
           <mat-form-field class="full-width">
             <mat-label>Titular de la cuenta</mat-label>
-            <input formControlName="holder" id="holder" matInput placeholder="Ex: Juan Pérez" >
+            <input formControlName="holder" id="holder" matInput placeholder="Ex: Juan Pérez">
             <mat-icon matSuffix>account_box</mat-icon>
             <mat-error *ngIf="hasError('holder', 'required')">Este campo es requerido</mat-error>
           </mat-form-field>
@@ -53,28 +64,19 @@
         <div class="col-md-6">
           <mat-form-field class="full-width">
             <mat-label>Últimos cuatro dígitos de la tarjeta</mat-label>
-            <input formControlName="lastFourDigits" matInput type="number" decimals="0" min="0" max="9999" placeholder="Ex: 3241">
+            <input formControlName="lastFourDigits" matInput type="text" minlength="4" maxlength="4" pattern="[0-9]{4}" placeholder="Ex: 3241">
             <mat-icon matSuffix>credit_card</mat-icon>
             <mat-error *ngIf="hasError('lastFourDigits', 'required')">Este campo es requerido</mat-error>
+            <mat-error *ngIf="hasError('lastFourDigits', 'pattern')">Deben ser cuatro dígitos numéricos</mat-error>
           </mat-form-field>
         </div>
         <div class="col-md-6">
           <mat-form-field class="full-width">
             <mat-label>Sinpe móvil</mat-label>
-            <input formControlName="phone" matInput type="number" min="0" placeholder="Ex: 88888888">
+            <input formControlName="phone" matInput type="text" minlength="8" maxlength="8" pattern="[0-9]{8}" placeholder="Ex: 88888888">
             <mat-icon matSuffix>phonelink_ring</mat-icon>
             <mat-error *ngIf="hasError('phone', 'required')">Este campo es requerido</mat-error>
-          </mat-form-field>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col-12">
-          <mat-form-field class="full-width">
-            <mat-label>Cuenta IBAN</mat-label>
-            <input formControlName="iban" matInput placeholder="Ex: CR01123434342323231232">
-            <mat-icon matSuffix>account_balance_wallet</mat-icon>
-            <mat-error *ngIf="hasError('iban', 'required')">Este campo es requerido</mat-error>
+            <mat-error *ngIf="hasError('phone', 'pattern')">Deben ser ocho dígitos numéricos</mat-error>
           </mat-form-field>
         </div>
       </div>
@@ -85,7 +87,7 @@
         <button type="button" routerLink="/dashboard" mat-raised-button>Cancelar</button>
       </div>
       <div class="col-md-6 text-end">
-        <button (click)="onSubmit()" mat-raised-button color="primary">Registrar cuenta</button>
+        <button (click)="onSubmit()" mat-raised-button color="primary">Aceptar</button>
       </div>
     </mat-card-actions>
 
