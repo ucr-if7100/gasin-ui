@@ -1,8 +1,12 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
+<<<<<<< HEAD
 
 import { DashboardComponent } from './dashboard/dashboard.component';
+=======
+import { DashboardComponent } from './components/dashboard/dashboard.component';
+>>>>>>> 31f12d2a9e1c08d8bb78857de8b1ee8b6642d3d7
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import {MatCardModule} from '@angular/material/card';
@@ -14,7 +18,7 @@ import {MatListModule} from '@angular/material/list';
 import {MatTableModule } from '@angular/material/table';
 
 import {RouterModule} from '@angular/router';
-import { SidebarComponent } from './sidebar/sidebar.component'
+import { SidebarComponent } from './components/sidebar/sidebar.component'
 import { AppRoutingModule } from './app-routing.module';
 
 
