@@ -2,7 +2,7 @@ import {  Component, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { AfterViewInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
-import { UserService } from 'src/app/services/user-service/user.service';
+import { TransactionService } from 'src/app/services/transaction-service/transaction.service';
 @Component({
   selector: 'app-search-income',
   templateUrl: './search-income.component.html',
@@ -13,7 +13,7 @@ export class SearchIncomeComponent implements OnInit,AfterViewInit {
   @ViewChild(MatPaginator) paginator: any = MatPaginator;
 
   constructor(
-    public rest: UserService,
+    public rest: TransactionService,
   ) {}
   dataSource = new MatTableDataSource();
 
