@@ -24,6 +24,7 @@ export class TransactionService {
     return this.http.post(Endpoint+'/insert',user,httpOptions)
   }
 
+
   getExpense(id_user:String){
     console.log("hola")
     return this.http.get(Endpoint+'/getExpense/'+id_user,httpOptions)
@@ -44,6 +45,12 @@ export class TransactionService {
     return this.http.delete(Endpoint+'/delete/'+id,httpOptions)
   }
 
+
+
+
+  get():Observable<any>{
+    return this.http.get(Endpoint+'/get',httpOptions)
+  }
 
 
 }
