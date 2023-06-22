@@ -27,7 +27,7 @@ import { InsertUserComponent } from './user/insert-user/insert-user.component';
 import { UserModule } from './user/user.module';
 import { CategoryModule } from './category/category.module';
 import { Routes } from 'react-router-dom';
-
+import { MatMenuModule } from '@angular/material/menu';
 
 @NgModule({
   declarations: [
@@ -58,8 +58,8 @@ import { Routes } from 'react-router-dom';
     ExpenseModule,
     IncomeModule,
     UserModule,
-    CategoryModule
-
+    CategoryModule,
+    MatMenuModule
   ],
   providers: [],
   bootstrap: [AppComponent]
