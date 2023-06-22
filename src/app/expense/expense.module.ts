@@ -16,6 +16,19 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import {MatNativeDateModule} from '@angular/material/core';
 import { HttpClientModule } from '@angular/common/http';
+import { UpdateExpenseComponent } from './update-expense/update-expense.component';
+import { SeeExpenseComponent } from './see-expense/see-expense.component';
+import { DeleteExpenseComponent } from './delete-expense/delete-expense.component';
+import { SearchExpenseComponent } from './search-expense/search-expense.component';
+import { CategoryRoutingModule } from '../category/category-routing.module';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatStepperModule } from '@angular/material/stepper';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatCardModule } from '@angular/material/card';
+import { MatTabsModule } from '@angular/material/tabs';
+import { MatTableModule } from '@angular/material/table';
 
 
 
@@ -23,7 +36,11 @@ import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
-    InsertExpenseComponent
+    InsertExpenseComponent,
+    UpdateExpenseComponent,
+    SeeExpenseComponent,
+    DeleteExpenseComponent,
+    SearchExpenseComponent
   ],
   imports: [
     CommonModule,
@@ -37,7 +54,17 @@ import { HttpClientModule } from '@angular/common/http';
     MatSelectModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    HttpClientModule
+    HttpClientModule,
+    CategoryRoutingModule,
+    MatIconModule,
+    MatButtonModule ,
+    MatPaginatorModule,
+    MatStepperModule,
+    MatIconModule,
+    MatDividerModule,
+    MatCardModule,
+    MatTabsModule,
+    MatTableModule
 
 
 
