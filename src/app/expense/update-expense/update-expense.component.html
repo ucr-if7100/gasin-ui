@@ -1,8 +1,8 @@
 
 <div class="modificar-container" fxLayout="column" fxLayoutAlign="center center" >
-  <h1 class="section-heading text-uppercase " style="color: green;" >Registro de Gastos</h1>
+  <h1 class="section-heading text-uppercase " style="color: green;" >Modificar Gastos</h1>
   <br><br>
-  <form  [formGroup]="expenseForm" (ngSubmit)="add()" action="#" class="border rounded p-2 form">
+  <form  [formGroup]="expenseForm" (ngSubmit)="update()" action="#" class="border rounded p-2 form">
 
 
 
@@ -62,7 +62,7 @@
 
 
             <div fxLayout="row"  fxLayoutGap="8rem" fxLayoutAlign="center center" class="imput-data">
-              <button class="btnGuardar" type="submit" mat-raised-button aria-label="Example icon button with a menu icon">
+              <button class="btnGuardar" type="submit" mat-raised-button color="primary" aria-label="Example icon button with a menu icon">
                 Guardar
               </button>
 
