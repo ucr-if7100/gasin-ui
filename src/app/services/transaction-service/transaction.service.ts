@@ -24,8 +24,8 @@ export class TransactionService {
     return this.http.post(Endpoint+'/insert',user,httpOptions)
   }
 
-  get():Observable<any>{
-    return this.http.get(Endpoint+'/get',httpOptions)
+  get(id:any):Observable<any>{
+    return this.http.get(Endpoint+'/getIncome/'+id,httpOptions)
   }
 
 

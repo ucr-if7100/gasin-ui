@@ -35,7 +35,7 @@ export class SearchIncomeComponent implements OnInit,AfterViewInit {
   }
 
   get() {
-    this.rest.get().subscribe((data: any) => {
+    this.rest.get('f805e809-38d3-4268-8524-d2209a3bd6a7').subscribe((data: any) => {
       this.dataSource.data = data;
       console.log(data)
     })

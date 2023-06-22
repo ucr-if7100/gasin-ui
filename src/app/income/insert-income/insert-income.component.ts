@@ -24,7 +24,7 @@ export class InsertIncomeComponent implements OnInit {
     date: [''],
     type: ['INCOME'],
     idAccount:[1],
-    idUser:[1],
+    idUser:['f805e809-38d3-4268-8524-d2209a3bd6a7'],
     numRefBank:['N/A'],
   }
 
@@ -40,7 +40,7 @@ export class InsertIncomeComponent implements OnInit {
       date: [''],
       type: ['INCOME'],
       idAccount:[1],
-      idUser:[1],
+      idUser:['f805e809-38d3-4268-8524-d2209a3bd6a7'],
       numRefBank:['N/A'],
       
     });
@@ -72,7 +72,7 @@ export class InsertIncomeComponent implements OnInit {
         date: ['', Validators.required],
         type: ['INCOME', Validators.required],
         idAccount:[1],
-        idUser:[1],
+        idUser:['f805e809-38d3-4268-8524-d2209a3bd6a7'],
         numRefBank:['']
       });
       Swal.fire(
