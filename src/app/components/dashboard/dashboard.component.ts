@@ -15,7 +15,7 @@ export class DashboardComponent {
   dataSource: MatTableDataSource<Transaction>;
 
   constructor(private router: Router) {
-    
+
 
     // Cargar los datos de las cuentas bancarias y las transacciones desde tu backend o fuente de datos
     this.accounts = [
@@ -48,8 +48,8 @@ export class DashboardComponent {
     this.router.navigate(['/transactions']);
   }
 
-  addAccount() {
-    // Lógica para agregar una nueva cuenta bancaria
+  addAccount(): void {
+    this.router.navigateByUrl('/addAccount');
   }
 }
 

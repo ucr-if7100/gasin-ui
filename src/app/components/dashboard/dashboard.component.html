@@ -3,14 +3,14 @@
     <div class="accounts-container">
         <h2>Cuentas Bancarias</h2>
         <div class="account-cards">
-            <div *ngFor="let account of accounts" class="account-card" [ngClass]="getAccountCardColor(account.balance)">
+            <div *ngFor="let account of accounts" class="account-card" [ngClass]="getAccountCardColor(account.balance)" [routerLink]="['/editAccount', account.name]">
                 <div class="account-info">
                     <h3>{{ account.name }}</h3>
                     <p>Saldo: ₡{{ account.balance | number }}</p>
                 </div>
             </div>
         </div>
-        <button class="add-account-btn" (click)="addAccount()">Agregar Cuenta</button>
+        <button type="button" class="add-account-btn" routerLink="/addAccount">Agregar Cuenta</button>
     </div>
 
     <div class="transactions-container">
