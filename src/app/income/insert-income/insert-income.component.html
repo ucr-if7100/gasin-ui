@@ -1,0 +1,59 @@
+<form [formGroup]="incomeForm" (ngSubmit)="add()" action="#" class="border rounded p-2 form">
+
+<div
+  class="modificar-container"
+  fxLayout="column"
+  fxLayoutAlign="center center"
+>
+
+  <h1 class="textTittle">Registrar Ingreso</h1>
+
+  <!--form class="ofertaLaboral-form" -->
+
+  <div fxLayout="row" fxLayoutAlign="center none" fxLayoutGap="8rem">
+    <div
+      fxLayout="column"
+      fxLayoutAlign="space-evenly start"
+      fxLayoutGap="1rem"
+    >
+      <div fxLayout="row" fxLayoutGap="8rem">
+        <mat-form-field class="imput-data">
+          <mat-label>Descripcion </mat-label>
+          <input matInput formControlName="description" />
+        </mat-form-field>
+
+        <mat-form-field class="imput-data">
+          <mat-label>Monto</mat-label>
+          <input matInput formControlName="amount"/>
+        </mat-form-field>
+      </div>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Fecha</mat-label>
+         <input
+          id="dateTicket"
+          matInput
+          [matDatepicker]="picker"
+          (dateInput)="selectDate('input', $event)"
+          (dateChange)="selectDate('change', $event)"
+          [formControl]="date"
+        />
+        <mat-hint>MM/DD/YYYY</mat-hint>
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+    </div>
+  </div>
+
+</div>
+
+<div
+  fxLayout="row"
+  class="btnGuardar"
+  fxLayoutGap="8rem"
+  fxLayoutAlign="center center"
+  
+>
+  <button mat-raised-button color="primary" type="submit">Registrar</button>
+</div>
+</form>

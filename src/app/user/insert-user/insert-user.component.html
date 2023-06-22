@@ -1,0 +1,68 @@
+  <form  [formGroup]="userForm" (ngSubmit)="add()" action="#" class="border rounded p-2 form">
+<div
+  class="modificar-container"
+  fxLayout="column"
+  
+  fxLayoutAlign="center center"
+>
+  <h1 class="section-heading text-uppercase">Registro de Usuarios</h1>
+
+  <div fxLayout="row" fxLayoutAlign="center none" fxLayoutGap="8rem">
+    <div
+      fxLayout="column"
+      fxLayoutAlign="space-evenly start"
+      fxLayoutGap="1rem"
+    >
+      <div fxLayout="row" fxLayoutGap="8rem">
+        <mat-form-field  class="imput-data"> 
+          <mat-label>Email</mat-label>
+          <input matInput formControlName="email"/>
+        </mat-form-field>
+
+        <mat-form-field  class="imput-data">
+          <mat-label>Nombre</mat-label>
+          <input matInput formControlName="name" />
+        </mat-form-field>
+      </div>
+
+      <div fxLayout="row" fxLayoutGap="8rem">
+        <mat-form-field  class="imput-data">
+          <mat-label>Apellido</mat-label>
+          <input matInput formControlName="lastname"/>
+        </mat-form-field>
+
+        <mat-form-field  class="imput-data">
+          <mat-label>Nombre de usuario</mat-label>
+          <input matInput formControlName="username"/>
+        </mat-form-field>
+      </div>
+
+      <div fxLayout="row" fxLayoutGap="8rem">
+        <mat-form-field  class="imput-data">
+          <mat-label>Contraseña</mat-label>
+          <input matInput type="password" />
+        </mat-form-field>
+
+        
+      </div>
+    </div>
+  </div>
+
+  <div
+    fxLayout="row"
+    class="btnGuardar"
+    fxLayoutGap="8rem"
+    fxLayoutAlign="center center"
+  >
+</div>
+    <button
+     type="submit"
+      mat-raised-button
+      color="primary"
+      aria-label="Example icon button with a menu icon"
+    >
+      Guardar
+    </button>
+  </div>
+</form>
+
