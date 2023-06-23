@@ -1,14 +1,10 @@
-
 import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
-
-
 import { CommonModule } from '@angular/common';
-
 import { DashboardComponent } from "./components/dashboard/dashboard.component";
-import { RegisterAccountComponent } from "./components/register-account/register-account.component";
-import { EditAccountComponent } from "./components/edit-account/edit-account.component";
-
+import { EditAccountComponent } from "./components/account/edit-account/edit-account.component";
+import { RegisterAccountComponent } from "./components/account/register-account/register-account.component";
+import { ViewAccountComponent } from "./components/account/view-account/view-account.component";
 
 const routes: Routes = [
     {path: '', redirectTo: '/dashboard', pathMatch: 'full'},
@@ -17,7 +13,8 @@ const routes: Routes = [
     {path: 'transactions', component: DashboardComponent},
     {path: 'accounts', component: DashboardComponent},
     {path: 'addAccount', component: RegisterAccountComponent},
-    {path: 'editAccount/:accountId', component: EditAccountComponent}
+    {path: 'editAccount/:accountId', component: EditAccountComponent},
+    {path: 'viewAccount/:accountId', component: ViewAccountComponent}
 ];
 
 @NgModule({
@@ -26,4 +23,3 @@ const routes: Routes = [
 })
 
 export class AppRoutingModule { }
-
