@@ -3,7 +3,7 @@
     <div class="accounts-container">
         <h2>Cuentas Bancarias</h2>
         <div class="account-cards">
-            <div *ngFor="let account of accounts" class="account-card" [ngClass]="getAccountCardColor(account.balance)" [routerLink]="['/editAccount', account.name]">
+            <div *ngFor="let account of accounts" class="account-card" [ngClass]="getAccountCardColor(account.balance)" [routerLink]="['/viewAccount', account.name]">
                 <div class="account-info">
                     <h3>{{ account.name }}</h3>
                     <p>Saldo: ₡{{ account.balance | number }}</p>

@@ -28,7 +28,6 @@ import { UserModule } from './user/user.module';
 import { CategoryModule } from './category/category.module';
 import { Routes } from 'react-router-dom';
 
-
 @NgModule({
   declarations: [
     AppComponent,
