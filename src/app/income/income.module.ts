@@ -23,12 +23,18 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatSelectModule } from '@angular/material/select';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatCardModule } from '@angular/material/card';
+import { UpdateIncomeComponent } from './update-income/update-income.component';
+import { SeeIncomeComponent } from './see-income/see-income.component';
+import { DeleteIncomeComponent } from './delete-income/delete-income.component';
 @NgModule({
   declarations: [
 
 
     InsertIncomeComponent,
-        SearchIncomeComponent
+        SearchIncomeComponent,
+        UpdateIncomeComponent,
+        SeeIncomeComponent,
+        DeleteIncomeComponent
   ],
   imports: [
     CommonModule,

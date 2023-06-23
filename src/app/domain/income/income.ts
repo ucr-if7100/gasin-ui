@@ -1,12 +1,14 @@
 export class Income {
     constructor(
-        description: '',
-        amount: 0,
-        date: [''],
-        type: ['I'],
-        idAccount:[1],
-        idUser:[1],
-        numRefBank:['N/A'],
+        public id?:number,
+        public idUser?:String,
+        public numRefBank?:String,
+        public idAccount?:number,
+        public description?:String,
+        public type?:any,
+        public amount?:number,
+        public date?:String,
+        public idCategory?:any,
     ){
 
     }
