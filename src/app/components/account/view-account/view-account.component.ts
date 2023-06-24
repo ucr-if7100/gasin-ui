@@ -1,4 +1,4 @@
-import { Component, Inject } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatIconModule } from '@angular/material/icon';
 import { MatCardModule } from '@angular/material/card';
@@ -8,6 +8,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import {MatDialog, MatDialogRef, MatDialogModule, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import { ActivatedRoute, RouterModule } from "@angular/router";
+import { AccountService } from 'src/app/services/account-service/account.service';
 
 @Component({
   selector: 'app-view-account',
@@ -26,15 +27,17 @@ import { ActivatedRoute, RouterModule } from "@angular/router";
     MatDialogModule
   ]
 })
-export class ViewAccountComponent {
+export class ViewAccountComponent implements OnInit{
 
-  public accountId: string
+  public accountId: any
   public data: any;
+  public error = false;
 
-  constructor(private route: ActivatedRoute, public dialog: MatDialog) {
+  constructor(private route: ActivatedRoute, public dialog: MatDialog, private accountService: AccountService) {}
 
+  ngOnInit(): void {
     this.accountId = this.route.snapshot.paramMap.get('accountId') as string;
-    this.data = this.getAccountData(this.accountId);
+    this.loadAccount(this.accountId);
   }
 
   openDialog(): void {
@@ -46,31 +49,48 @@ export class ViewAccountComponent {
     });
   }
 
-  public getAccountData(accountId: any) {
-    return {
-      holder: accountId,
-      type: "C",
-      bank: "BCR",
-      balance: -100,
-      lastFourDigits: "1234",
-      iban: "CR12345",
-      phone: "88888888",
-      active: 1
-    };
+  async loadAccount(accountId: string): Promise<void> {
+    try {
+      const account = await this.accountService.getAccount(accountId).toPromise();
+      if (account) {
+        this.data = account;
+        console.log(this.data);
+      }
+    } catch (error) {
+      this.error = true;
+    }
   }
-
 }
 
 @Component({
   selector: 'account-details-dialog',
   templateUrl: './account-details-dialog.component.html',
   standalone: true,
-  imports: [MatDialogModule, MatButtonModule],
+  imports: [MatDialogModule, MatButtonModule, CommonModule,],
 })
 export class AccountDetailsDialogComponent {
-  constructor(public dialogRef: MatDialogRef<AccountDetailsDialogComponent>, @Inject(MAT_DIALOG_DATA) public data: any) {}
+  public title: string;
+  public content: string;
+  public showActions: boolean;
 
-  public changeAccountState() {
-    this.data.active = this.data.active === 1 ? 0 : 1;
+  constructor(public dialogRef: MatDialogRef<AccountDetailsDialogComponent>, @Inject(MAT_DIALOG_DATA) public data: any, private accountService: AccountService) {
+    this.title = `${data.active ? 'Desactivar' : 'Activar'} cuenta`;
+    this.content = `¿Seguro que desea ${ data.active ? 'desactivar' : 'activar' } la cuenta?`;
+    this.showActions = true;
+  }
+
+  async changeAccountState(): Promise<void> {
+    try {
+      await this.accountService.updateAccountState(this.data.id, !this.data.active).toPromise();
+
+      this.title = `Cuenta ${this.data.active ? 'desactivada' : 'activada'}`;
+      this.content = `La cuenta se ${this.data.active ? 'desactivó' : 'activó'} correctamente`;
+      this.data.active = !this.data.active;
+    } catch (error) {
+      this.title = `Ups!`;
+      this.content = `Ha ocurrido un error al ${this.data.active ? 'desactivar' : 'activar'} la cuenta`;
+    }finally{
+      this.showActions = false;
+    }
   }
 }

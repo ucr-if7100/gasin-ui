@@ -1,5 +1,5 @@
 export enum AccountType {
-    C = 'Crédito',
-    D = 'Débito',
-    E = 'Efectivo'
+    Credit = 'Crédito',
+    Debit = 'Débito',
+    Cash = 'Efectivo'
   }
