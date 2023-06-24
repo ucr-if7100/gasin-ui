@@ -1,8 +1,9 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppComponent } from './app.component';
+
 import { DashboardComponent } from './components/dashboard/dashboard.component';
+
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import {MatCardModule} from '@angular/material/card';
@@ -19,9 +20,21 @@ import { SidebarComponent } from './components/sidebar/sidebar.component'
 import { AppRoutingModule } from './app-routing.module';
 import { EmailForwardingComponent } from './help/email-forwarding/email-forwarding.component';
 
+
+import { CoreModule } from './core/core.module';
+import { ExpenseModule } from './expense/expense.module';
+
+import { IncomeModule } from './income/income.module';
+import { InsertUserComponent } from './user/insert-user/insert-user.component';
+import { UserModule } from './user/user.module';
+import { CategoryModule } from './category/category.module';
+import { Routes } from 'react-router-dom';
+import { AccountService } from './services/account-service/account.service';
+
 @NgModule({
   declarations: [
     AppComponent,
+
     DashboardComponent,
     SidebarComponent,
     EmailForwardingComponent,
@@ -41,9 +54,17 @@ import { EmailForwardingComponent } from './help/email-forwarding/email-forwardi
     MatListModule,
     MatTableModule,
     RouterModule,
-    FormsModule
+    FormsModule,
+    CoreModule,
+    AppRoutingModule,
+    ExpenseModule,
+    IncomeModule,
+    UserModule,
+    CategoryModule
   ],
-  providers: [],
+  providers: [
+    AccountService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

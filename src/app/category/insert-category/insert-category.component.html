@@ -1,0 +1,47 @@
+<div
+  class="modificar-container"
+  fxLayout="column"
+  fxLayoutAlign="center center"
+  fxLayoutGap="3rem"
+>
+<h1 class="section-heading text-uppercase " style="color: green;" >Registro de Categoría</h1>
+<form  [formGroup]="CategoryForm" (ngSubmit)="add()" action="#" class="border rounded p-2 form">
+
+
+  <div fxLayout="row" fxLayoutAlign="center none" fxLayoutGap="10rem">
+    <div
+      fxLayout="column"
+      fxLayoutAlign="space-evenly start"
+      fxLayoutGap="8rem"
+    >
+      <div fxLayout="row" fxLayoutGap="10rem">
+        <mat-form-field  class="imput-data">
+          <mat-label>Nombre</mat-label>
+          <input matInput formControlName="name"/>
+        </mat-form-field>
+
+        <mat-form-field  class="imput-data">
+          <mat-label>Descripción</mat-label>
+          <input matInput formControlName="description" />
+        </mat-form-field>
+      </div>
+
+
+    </div>
+  </div>
+
+  <div
+    fxLayout="row"
+    fxLayoutGap="30rem"
+    fxLayoutAlign="center center"
+  >
+  <div fxLayout="row"  fxLayoutGap="8rem" fxLayoutAlign="center center" class="imput-data">
+    <button class="btnGuardar" type="submit"  aria-label="Example icon button with a menu icon">
+      Guardar
+    </button>
+  </div>
+
+  </div>
+</form>
+</div>
+

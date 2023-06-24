@@ -1,0 +1,28 @@
+.account-state {
+  height: 15px;
+  width: 15px;
+  border-radius: 50%;
+  display: inline-block;
+  margin-right: 5px;
+}
+
+.account-state-active {
+  background-color: #10eb35;
+}
+
+.account-state-inactive {
+  background-color: #f52738;
+}
+
+.balance span{
+  font-size: 2em;
+  margin-left: 0.5em;
+}
+
+.positive-balance {
+  color: #10eb35
+}
+
+.negative-balance {
+  color: #f52738
+}

@@ -1,0 +1,55 @@
+
+.btnGuardar{
+
+  background-color:#4A4A4A;
+  color: white;
+  border-radius: 10px;
+  padding: 20px;
+
+}
+
+
+
+
+.modificar-container{
+
+  padding : 10 px ;
+  background-color: rgb (245 , 245 , 220) ;
+
+}
+
+.imput-data{
+
+  box-shadow: 0 0 3px  green;
+  border-radius: 20px;
+  padding: 10px;
+
+}
+
+
+
+
+.mat-card-content-container{
+
+  background-color:#ffffff;
+  width: 17rem ;
+  height: 5rem ;
+  box-shadow: 0 0 10px #000000;
+  border-radius: 20px;
+  padding: 10px;
+
+
+}
+
+.mod{
+  color: red;
+}
+
+.textTittle{
+  text-align:center;
+  padding: 2rem;
+
+}
+
+
+
