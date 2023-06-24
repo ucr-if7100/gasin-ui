@@ -31,17 +31,30 @@ import { RouterModule } from "@angular/router";
 export class RegisterAccountComponent {
 
   public account: FormGroup;
+  public isBankAccount = true;
 
   constructor(private fb: FormBuilder) {
     this.account = this.fb.group({
-      holder: ['', Validators.required],
-      type: ['', Validators.required],
-      bank: ['', Validators.required],
-      balance: ['', Validators.required],
-      lastFourDigits: ['', Validators.required],
+      accountName: ['', Validators.required],
+      accountType: ['', Validators.required],
+      bankName: ['', Validators.required],
+      currentBalance: ['', Validators.required],
+      card: ['', Validators.required],
       iban: ['', Validators.required],
-      phone: ['', Validators.required]
+      phoneNumber: ['', Validators.required]
     });
+
+    this.account.controls['accountType'].valueChanges.subscribe(selectedValue => {
+      this.isBankAccount = selectedValue === 'Cash' ? false : true;
+      this.account.controls["iban"].setValidators(this.isBankAccount ? [Validators.required] : null);
+      this.account.controls["iban"].updateValueAndValidity();
+      this.account.controls["bankName"].setValidators(this.isBankAccount ? [Validators.required] : null);
+      this.account.controls["bankName"].updateValueAndValidity();
+      this.account.controls["card"].setValidators(this.isBankAccount ? [Validators.required] : null);
+      this.account.controls["card"].updateValueAndValidity();
+      this.account.controls["phoneNumber"].setValidators(this.isBankAccount ? [Validators.required] : null);
+      this.account.controls["phoneNumber"].updateValueAndValidity();
+    })
   }
 
   public onSubmit() {
