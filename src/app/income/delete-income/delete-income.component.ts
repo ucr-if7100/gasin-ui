@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import {
   FormBuilder,
   FormControl,
@@ -6,21 +6,20 @@ import {
   Validators,
 } from '@angular/forms';
 import { MatDatepickerInputEvent } from '@angular/material/datepicker';
+import { ActivatedRoute, Router } from '@angular/router';
 import * as moment from 'moment';
 import { Income } from 'src/app/domain/income/income';
 import { TransactionService } from 'src/app/services/transaction-service/transaction.service';
 import Swal from 'sweetalert2';
-import { ActivatedRoute, Router } from '@angular/router';
 @Component({
-  selector: 'app-insert-income',
-  templateUrl: './insert-income.component.html',
-  styleUrls: ['./insert-income.component.css'],
+  selector: 'app-delete-income',
+  templateUrl: './delete-income.component.html',
+  styleUrls: ['./delete-income.component.css'],
 })
-export class InsertIncomeComponent implements OnInit {
+export class DeleteIncomeComponent {
   date: any;
   hour: any;
-
-  dataIncome: Income = {
+  data_income: Income = {
     description: '',
     amount: 0,
     date: '',
@@ -31,13 +30,31 @@ export class InsertIncomeComponent implements OnInit {
     numRefBank: '',
   };
 
+  id: string = '';
+
+  dataIncome: Income = {
+    description: '',
+    amount: 0,
+    date: '',
+    type: 'INCOME',
+    idCategory: 0,
+    idAccount: 1,
+    idUser: '1',
+    numRefBank: '',
+  };
+
   incomeForm: FormGroup = new FormGroup({});
 
   constructor(
+    private route: ActivatedRoute,
     private fb: FormBuilder,
-    private rest: TransactionService,
-    private router: Router
-  ) {}
+    private router: Router,
+    private restTransaction: TransactionService
+  ) {
+    this.route.params.subscribe((params) => {
+      this.id = params['id'];
+    });
+  }
 
   ngOnInit(): void {
     this.incomeForm = this.fb.group({
@@ -45,13 +62,36 @@ export class InsertIncomeComponent implements OnInit {
       amount: [0, Validators.required],
       date: ['', Validators.required],
       type: ['INCOME', Validators.required],
+      idCategory: [0, Validators.required],
       idAccount: [1],
       idUser: ['38400000-8cf0-11bd-b23e-10b96e4ef00d'],
       numRefBank: [''],
     });
+    this.get();
   }
 
-  add() {
+  get() {
+    this.restTransaction.getExpenseId(this.id).subscribe((data) => {
+      this.data_income = data;
+      this.incomeForm.patchValue({
+        description: this.data_income.description,
+      });
+
+      this.incomeForm.patchValue({
+        amount: this.data_income.amount,
+      });
+
+      this.incomeForm.patchValue({
+        date: this.data_income.date,
+      });
+    });
+  }
+  tuFormulario = new FormGroup({
+    referencia: new FormControl(),
+    selectedOption: new FormControl(),
+  });
+
+  deleteIncome() {
     if (!this.incomeForm.valid) {
       Swal.fire({
         icon: 'error',
@@ -60,19 +100,26 @@ export class InsertIncomeComponent implements OnInit {
       });
       return;
     }
+
+    console.log(this.incomeForm.value);
+
     this.dataIncome = this.incomeForm.value;
-    return this.rest.add(this.incomeForm.value).subscribe(
+
+    console.log(this.dataIncome);
+
+    return this.restTransaction.delete(this.id).subscribe(
       (result) => {
         this.incomeForm = this.fb.group({
           description: ['', Validators.required],
           amount: [0, Validators.required],
           date: ['', Validators.required],
           type: ['INCOME', Validators.required],
+          idCategory: [, Validators.required],
           idAccount: [1],
           idUser: ['38400000-8cf0-11bd-b23e-10b96e4ef00d'],
           numRefBank: [''],
         });
-        Swal.fire('Buen trabajo!', 'Ingreso añadido con éxito!', 'success');
+        Swal.fire('Buen trabajo!', 'Ingreso eliminado con éxito!', 'success');
         this.router.navigate(['/searchIncome']);
       },
       (err) => {
@@ -84,6 +131,7 @@ export class InsertIncomeComponent implements OnInit {
       }
     );
   }
+
   selectDate(type: string, event: MatDatepickerInputEvent<Date>) {
     this.date = moment(event.value).format('YYYY-MM-DD');
   }

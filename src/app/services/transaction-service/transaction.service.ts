@@ -40,6 +40,10 @@ export class TransactionService {
     return this.http.put(Endpoint+'/update/'+id,data,httpOptions)
   }
 
+  get(id:any){
+    return this.http.get(Endpoint+'/getIncome/'+id,httpOptions)
+  }
+
 
   delete(id:any){
     return this.http.delete(Endpoint+'/delete/'+id,httpOptions)
@@ -47,10 +51,6 @@ export class TransactionService {
 
 
 
-
-  get():Observable<any>{
-    return this.http.get(Endpoint+'/get',httpOptions)
-  }
 
 
 }
