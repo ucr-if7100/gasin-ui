@@ -1,0 +1,60 @@
+<div class="container">
+
+  <h1> Reenvío de correos para el registro automático de transacciones </h1>
+  <h4> Seleccione su proveedor de correo. </h4>
+
+    <div class="radio-group">
+      <label>
+        <input type="radio" name="emailProvider" [(ngModel)]="selectedProvider" value="gmail"> Gmail
+      </label>
+      <label>
+        <input type="radio" name="emailProvider" [(ngModel)]="selectedProvider" value="hotmail"> Hotmail
+      </label>
+    </div>
+  
+    <div class="instructions" *ngIf="selectedProvider === 'gmail'">
+      <p>Para configurar el reenvío de correos electrónicos de ciertos remitentes a la dirección de correo de la empresa GasIn (gasin.app.dev@gmail.com) en Gmail, sigue estos pasos:</p>
+      <ol>
+        <li>Inicia sesión en tu cuenta de Gmail.</li>
+        <li>Haz clic en el ícono de rueda dentada en la esquina superior derecha de la página para acceder a la configuración.</li>
+        <img class="image" src="assets/media/emailForwarding/confIconGmail.png"/>
+        <li>Selecciona "Ver todas las configuraciones".</li>
+        <img class="image" src="assets/media/emailForwarding/allConfigs.png"/>
+        <li>Ve a la pestaña "Reenvío y correo POP/IMAP" en la parte superior de la página de configuración.</li>
+        <li>Haz clic en el botón "Añadir una dirección de reenvío" en la sección "Reenvío".</li>
+        <img class="image" src="assets/media/emailForwarding/addEmailDirectionGmail.png"/>
+        <li>Ingresa la dirección de correo electrónico gasin.app.dev@gmail.com en el campo "Dirección de reenvío".</li>
+        <li>Haz clic en el botón "Siguiente".</li>
+        <li>Selecciona la opción "Reenviar una copia de los mensajes entrantes a".</li>
+        <li>A continuación, puedes configurar las condiciones específicas para los remitentes cuyos mensajes deseas reenviar. Puedes utilizar el campo "De" para establecer los criterios de reenvío. Por ejemplo, si deseas reenviar los correos de un remitente específico, ingresa su dirección de correo electrónico completa en el campo "De".</li>
+        <img class="image" src="assets/media/emailForwarding/filtroGmail.png"/>
+        <li>Si deseas aplicar el reenvío a todos los mensajes entrantes, deja el campo "De" en blanco.</li>
+        <li>Haz clic en el botón "Guardar cambios".</li>
+      </ol>
+      <p>Es importante tener en cuenta que Gmail solo permite el reenvío automático de mensajes a direcciones de correo electrónico verificadas, por lo que antes de configurar el reenvio, debes de registrar tu correo en la App de GasIn, así nuestro equipo sabrá cuales reenvios de correos debe aceptar.</p>
+    </div>
+  
+    <div class="instructions" *ngIf="selectedProvider === 'hotmail'">
+        <p>Para configurar el reenvío de correos electrónicos de ciertos remitentes a la dirección de correo de la empresa GasIn (gasin.app.dev@gmail.com) en Hotmail/Outlook.com, sigue estos pasos:</p>
+        <ol>
+          <li>Inicia sesión en tu cuenta de Hotmail/Outlook.com.</li>
+          <li>Haz clic en el ícono de rueda dentada en la esquina superior derecha de la página para acceder a la configuración.</li>
+          <img class="image" src="assets/media/emailForwarding/confIconOutlook.png"/>
+          <li>En el menú desplegable, selecciona "Ver todas las configuraciones de Outlook".</li>
+          <img class="image" src="assets/media/emailForwarding/allConfigsOutlook.png"/>
+          <li>Ve a la pestaña "Correo" en la parte superior de la página de configuración.</li>
+          <li>En la sección "Reglas", haz clic en "Agregar nueva regla".</li>
+          <img class="image" src="assets/media/emailForwarding/addRuleOutlook.png"/>
+          <li>Se abrirá una nueva ventana donde puedes configurar el reenvío de correo electrónico.</li>
+          <img class="image" src="assets/media/emailForwarding/newRuleOutlook.png"/>
+          <li>Ingresa la dirección de correo electrónico gasin.app.dev@gmail.com en el campo "A".</li>
+          <li>A continuación, puedes configurar las condiciones específicas para los remitentes cuyos mensajes deseas reenviar. Utiliza el campo "Remitente" para establecer los criterios de reenvío. Por ejemplo, si deseas reenviar los correos de un remitente específico, ingresa su dirección de correo electrónico completa en el campo "Remitente".</li>
+          <li>Si deseas aplicar el reenvío a todos los mensajes entrantes, deja el campo "Remitente" en blanco.</li>
+          <li>Marca la casilla "Mantener una copia de los mensajes reenviados" si también deseas conservar una copia de los mensajes en tu bandeja de entrada original.</li>
+          <li>Haz clic en el botón "Guardar".</li>
+        </ol>
+        <p>A partir de este momento, los correos electrónicos que cumplan con los criterios establecidos se reenviarán automáticamente a la dirección de correo electrónico de la empresa GasIn (gasin.app.dev@gmail.com) en Hotmail/Outlook.com.</p>
+      </div>
+  </div>
+  
+  
