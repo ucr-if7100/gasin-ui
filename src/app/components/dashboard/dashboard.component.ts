@@ -1,37 +1,28 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
+import { Account } from 'src/app/domain/account/account';
+import { AccountService } from 'src/app/services/account-service/account.service';
 
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.css']
 })
-export class DashboardComponent {
-  accounts: Account[]; // Definir el tipo de dato adecuado para las cuentas bancarias
-  transactions: Transaction[]; // Definir el tipo de dato adecuado para las transacciones
+export class DashboardComponent implements OnInit {
+  dataSource!: MatTableDataSource<Account>;
+  accounts: Account[] = [];
+  oneAccount: Account | null = null;
 
   displayedColumns: string[] = ['Fecha','Descripción', 'Monto'];
-  dataSource: MatTableDataSource<Transaction>;
 
-  constructor(private router: Router) {
+  constructor(
+    private router: Router,
+    private accountService: AccountService
+  ) { }
 
-
-    // Cargar los datos de las cuentas bancarias y las transacciones desde tu backend o fuente de datos
-    this.accounts = [
-      { name: 'Cuenta 1', balance: 1000 },
-      { name: 'Cuenta 2', balance: 2000 },
-      { name: 'Cuenta 3', balance: 500 }
-    ];
-
-    this.transactions = [
-      { date: new Date(), description: 'Compra', amount: -50 },
-      { date: new Date(), description: 'Depósito', amount: 100 },
-      { date: new Date(), description: 'Transferencia', amount: -200 },
-      { date: new Date(), description: 'Ingreso', amount: 500 }
-    ];
-
-    this.dataSource = new MatTableDataSource(this.transactions);
+  ngOnInit(): void {
+    this.loadAccounts();
   }
 
   getAccountCardColor(balance: number): string {
@@ -48,18 +39,18 @@ export class DashboardComponent {
     this.router.navigate(['/transactions']);
   }
 
-  addAccount(): void {
-    this.router.navigateByUrl('/addAccount');
+  async loadAccounts(): Promise<void> {
+    try {
+      const accounts = await this.accountService.getAccounts().toPromise();
+      if (accounts) {
+        this.accounts = accounts;
+        console.log(this.accounts)
+        this.dataSource = new MatTableDataSource<Account>(accounts);
+      }
+    } catch (error) {
+      console.error('Error loading the accounts:', error);
+    }
   }
-}
-
-interface Account {
-  name: string;
-  balance: number;
-}
-
-interface Transaction {
-  date: Date;
-  description: string;
-  amount: number;
+  
+  
 }

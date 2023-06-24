@@ -27,6 +27,7 @@ import { InsertUserComponent } from './user/insert-user/insert-user.component';
 import { UserModule } from './user/user.module';
 import { CategoryModule } from './category/category.module';
 import { Routes } from 'react-router-dom';
+import { AccountService } from './services/account-service/account.service';
 
 @NgModule({
   declarations: [
@@ -60,7 +61,9 @@ import { Routes } from 'react-router-dom';
     CategoryModule
 
   ],
-  providers: [],
+  providers: [
+    AccountService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
