@@ -1,5 +1,6 @@
 import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
+import { EmailForwardingComponent } from "./help/email-forwarding/email-forwarding.component";
 import { CommonModule } from '@angular/common';
 import { DashboardComponent } from "./components/dashboard/dashboard.component";
 import { EditAccountComponent } from "./components/account/edit-account/edit-account.component";
@@ -9,6 +10,7 @@ import { ViewAccountComponent } from "./components/account/view-account/view-acc
 const routes: Routes = [
     {path: '', redirectTo: '/dashboard', pathMatch: 'full'},
     {path: 'dashboard', component: DashboardComponent},
+    {path: 'emailForwarding', component: EmailForwardingComponent},
     {path: 'profile', component: DashboardComponent},
     {path: 'transactions', component: DashboardComponent},
     {path: 'accounts', component: DashboardComponent},

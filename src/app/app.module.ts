@@ -13,10 +13,12 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatListModule} from '@angular/material/list';
 import {MatTableModule } from '@angular/material/table';
+import { FormsModule } from '@angular/forms';
 
 import {RouterModule} from '@angular/router';
 import { SidebarComponent } from './components/sidebar/sidebar.component'
 import { AppRoutingModule } from './app-routing.module';
+import { EmailForwardingComponent } from './help/email-forwarding/email-forwarding.component';
 
 
 import { CoreModule } from './core/core.module';
@@ -35,6 +37,7 @@ import { AccountService } from './services/account-service/account.service';
 
     DashboardComponent,
     SidebarComponent,
+    EmailForwardingComponent,
     /*TransactionsComponent,
     ProfileComponent,
     BankAccountComponent*/
@@ -51,15 +54,13 @@ import { AccountService } from './services/account-service/account.service';
     MatListModule,
     MatTableModule,
     RouterModule,
-    BrowserModule,
+    FormsModule,
     CoreModule,
-    BrowserAnimationsModule,
     AppRoutingModule,
     ExpenseModule,
     IncomeModule,
     UserModule,
     CategoryModule
-
   ],
   providers: [
     AccountService
