@@ -4,7 +4,7 @@ import { Observable, catchError, throwError } from 'rxjs';
 import { Account } from 'src/app/domain/account/account';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AccountService {
   private apiUrl = 'http://localhost:8085/bank_account/';
@@ -12,10 +12,7 @@ export class AccountService {
   constructor(private http: HttpClient) {}
 
   getAccounts(): Observable<Account[]> {
-    return this.http.get<Account[]>(`${this.apiUrl}`)
-      .pipe(
-        catchError(this.handleError)
-      );
+    return this.http.get<Account[]>(`${this.apiUrl}`);
   }
 
   saveAccount(account: Account): Observable<boolean> {
@@ -34,8 +31,4 @@ export class AccountService {
     return this.http.delete<void>(`${this.apiUrl}delete/${id}`);
   }
 
-  private handleError(error: any): Observable<never> {
-    console.error('Error en la solicitud:', error);
-    return throwError('Ocurrió un error en la solicitud. Por favor, inténtalo de nuevo más tarde.');
-  }
 }

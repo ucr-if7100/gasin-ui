@@ -12,6 +12,7 @@ import { AccountService } from 'src/app/services/account-service/account.service
 export class DashboardComponent implements OnInit {
   dataSource!: MatTableDataSource<Account>;
   accounts: Account[] = [];
+  oneAccount: Account | null = null;
 
   displayedColumns: string[] = ['Fecha','Descripción', 'Monto'];
 
