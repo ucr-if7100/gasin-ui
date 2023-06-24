@@ -13,10 +13,12 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatListModule} from '@angular/material/list';
 import {MatTableModule } from '@angular/material/table';
+import { FormsModule } from '@angular/forms';
 
 import {RouterModule} from '@angular/router';
 import { SidebarComponent } from './components/sidebar/sidebar.component'
 import { AppRoutingModule } from './app-routing.module';
+import { EmailForwardingComponent } from './help/email-forwarding/email-forwarding.component';
 
 
 import { CoreModule } from './core/core.module';
@@ -27,7 +29,11 @@ import { InsertUserComponent } from './user/insert-user/insert-user.component';
 import { UserModule } from './user/user.module';
 import { CategoryModule } from './category/category.module';
 import { Routes } from 'react-router-dom';
+
 import { MatMenuModule } from '@angular/material/menu';
+
+import { AccountService } from './services/account-service/account.service';
+
 
 @NgModule({
   declarations: [
@@ -35,6 +41,7 @@ import { MatMenuModule } from '@angular/material/menu';
 
     DashboardComponent,
     SidebarComponent,
+    EmailForwardingComponent,
     /*TransactionsComponent,
     ProfileComponent,
     BankAccountComponent*/
@@ -51,17 +58,19 @@ import { MatMenuModule } from '@angular/material/menu';
     MatListModule,
     MatTableModule,
     RouterModule,
-    BrowserModule,
+    FormsModule,
     CoreModule,
-    BrowserAnimationsModule,
     AppRoutingModule,
     ExpenseModule,
     IncomeModule,
     UserModule,
     CategoryModule,
     MatMenuModule
+
   ],
-  providers: [],
+  providers: [
+    AccountService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

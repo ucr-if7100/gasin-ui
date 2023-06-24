@@ -19,7 +19,7 @@ export class SearchMemberComponent {
 
 
   displayedColumns: string[] = [
-    'mail',
+    'email',
 
   ];
 
@@ -39,10 +39,12 @@ export class SearchMemberComponent {
   }
 
   get() {
-    /*this.service_category.get().subscribe((data: any) => {
+
+    console.log("Hola")
+    this.service.getMember("d2eb1f7f-12f8-4fb5-a144-ae1a297d4b21").subscribe((data: any) => {
       this.dataSource.data = data;
       console.log(data)
-    })*/
+    })
   }
 
   applyFilter(event: Event) {

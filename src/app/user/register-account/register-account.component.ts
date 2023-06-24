@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UserService } from 'src/app/services/user-service/user.service';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -10,10 +11,11 @@ import Swal from 'sweetalert2';
 export class RegisterAccountComponent {
 
   RegisterAcccountForm: FormGroup = new FormGroup({});
+  router: any;
 
 
 
-  constructor(private fb: FormBuilder) {//falta rest
+  constructor(private fb: FormBuilder,private service:UserService) {//falta rest
 
    }
 
@@ -22,7 +24,9 @@ export class RegisterAccountComponent {
 
     this.RegisterAcccountForm = this.fb.group({
 
-      mail: ['', Validators.required],
+      email: ['', Validators.required],
+      idAdmin: ['d2eb1f7f-12f8-4fb5-a144-ae1a297d4b21'],
+      id: ['']
 
 
     });
@@ -41,7 +45,7 @@ export class RegisterAccountComponent {
       Swal.fire({
         icon: 'error',
         title: 'Oops...',
-        text: 'Something went wrong!',
+        text: 'Error formulario',
       });
       return;
     }
@@ -55,12 +59,12 @@ export class RegisterAccountComponent {
 
     console.log(this.RegisterAcccountForm.value)
 
-   /* return this.rest.add(this.RegisterAcccountForm).subscribe((result) => {
+   return this.service.addMember(this.RegisterAcccountForm.value).subscribe((result) => {
 
-      this.CategoryForm = this.fb.group({
+      this.RegisterAcccountForm = this.fb.group({
 
-        description: [''],
-        name: [''],
+        email: [''],
+
 
       });
       Swal.fire(
@@ -70,15 +74,15 @@ export class RegisterAccountComponent {
 
       )
 
-      this.router.navigate(['/searchCategory']);
+      this.router.navigate(['/searchMember']);
 
     }, (err) => {
       Swal.fire({
         icon: 'error',
         title: 'Oops...',
-        text: 'Something went wrong!',
+        text: 'Error al matricular!',
       });
-    });*/
+    });
   }
 
 }

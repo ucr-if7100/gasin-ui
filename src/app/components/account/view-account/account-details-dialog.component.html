@@ -1,0 +1,8 @@
+<h1 mat-dialog-title>{{ data.active === 1 ? 'Desactivar' : 'Activar' }} cuenta</h1>
+<div mat-dialog-content>
+  ¿Seguro que desea {{ data.active === 1 ? 'desactivar' : 'activar' }} la cuenta?
+</div>
+<div mat-dialog-actions>
+  <button mat-button mat-dialog-close>Cancelar</button>
+  <button mat-button mat-dialog-close cdkFocusInitial (click)="changeAccountState()">Aceptar</button>
+</div>
