@@ -12,12 +12,12 @@
         <div class="col-md-6">
           <mat-form-field class="full-width">
             <mat-label>Tipo de cuenta</mat-label>
-            <mat-select formControlName="accountType" matInput placeholder="Ex: Crédito">
+            <mat-select formControlName="bankAccountType" matInput placeholder="Ex: Crédito">
               <mat-option value="Credit">Crédito</mat-option>
               <mat-option value="Debit">Débito</mat-option>
               <mat-option value="Cash">Efectivo</mat-option>
             </mat-select>
-            <mat-error *ngIf="hasError('accountType', 'required')">Este campo es requerido</mat-error>
+            <mat-error *ngIf="hasError('bankAccountType', 'required')">Este campo es requerido</mat-error>
           </mat-form-field>
         </div>
         <div class="col-md-6">

@@ -13,6 +13,7 @@ export class DashboardComponent implements OnInit {
   dataSource!: MatTableDataSource<Account>;
   accounts: Account[] = [];
   oneAccount: Account | null = null;
+  userID: string = "11ee1247-3075-7f38-b4d7-c8d3ffd6ac27";
 
   displayedColumns: string[] = ['Fecha','Descripción', 'Monto'];
 
@@ -41,7 +42,7 @@ export class DashboardComponent implements OnInit {
 
   async loadAccounts(): Promise<void> {
     try {
-      const accounts = await this.accountService.getAccounts().toPromise();
+      const accounts = await this.accountService.getAccounts(this.userID).toPromise();
       if (accounts) {
         this.accounts = accounts;
         console.log(this.accounts)
@@ -51,6 +52,6 @@ export class DashboardComponent implements OnInit {
       console.error('Error loading the accounts:', error);
     }
   }
-  
-  
+
+
 }

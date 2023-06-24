@@ -36,7 +36,7 @@ export class RegisterAccountComponent {
   constructor(private fb: FormBuilder) {
     this.account = this.fb.group({
       accountName: ['', Validators.required],
-      accountType: ['', Validators.required],
+      bankAccountType: ['', Validators.required],
       bankName: ['', Validators.required],
       currentBalance: ['', Validators.required],
       card: ['', Validators.required],
@@ -44,7 +44,7 @@ export class RegisterAccountComponent {
       phoneNumber: ['', Validators.required]
     });
 
-    this.account.controls['accountType'].valueChanges.subscribe(selectedValue => {
+    this.account.controls['bankAccountType'].valueChanges.subscribe(selectedValue => {
       this.isBankAccount = selectedValue === 'Cash' ? false : true;
       this.account.controls["iban"].setValidators(this.isBankAccount ? [Validators.required] : null);
       this.account.controls["iban"].updateValueAndValidity();

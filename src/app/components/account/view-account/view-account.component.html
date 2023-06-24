@@ -1,55 +1,74 @@
-<mat-card>
-  <mat-card-header>
-    <mat-card-title>
-      <p><span class="account-state {{ data.active === 1 ? 'account-state-active' : 'account-state-inactive' }}"></span>Cuenta: {{ data.iban }}</p>
-    </mat-card-title>
-  </mat-card-header>
+<div *ngIf="data != null">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>
+        <p>
+          <span class="account-state {{ data.active ? 'account-state-active' : 'account-state-inactive' }}"></span>
+          Cuenta: {{ data.iban }}
+        </p>
+      </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <div class="row">
+        <div class="col-md-6">
+          <p class="balance">
+            Balance: <span [ngClass]="data.currentBalance > 0 ? 'positive-balance' : data.currentBalance < 0 ? 'negative-balance' : ''">{{ data.currentBalance }}</span>
+          </p>
+          <p>Banco: {{ data.bankName }}</p>
+        </div>
+        <div class="col-md-6">
+          <p>Tipo de cuenta: {{ data.bankAccountType === 'Credit' ? 'Crédito' : data.bankAccountType === 'Debit' ? 'Débito' : 'Efectivo'}}</p>
+          <p>Últimos cuatro dígitos de la tarjeta: {{ data.card }}</p>
+        </div>
+      </div>
+    </mat-card-content>
+  </mat-card>
 
-  <mat-card-content>
-    <div class="row">
+  <br>
+
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title><p>Titular de la cuenta: {{ data.accountName }}</p></mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <div class="row">
+        <div class="col-12">
+          <p>SINPE Móvil: {{ data.phoneNumber }}</p>
+        </div>
+      </div>
+    </mat-card-content>
+    <mat-card-actions>
       <div class="col-md-6">
-        <p class="balance"> Balance: <span [ngClass]="data.balance > 0 ? 'positive-balance' : data.balance < 0 ? 'negative-balance' : ''">{{ data.balance }}</span></p>
-        <p>Banco: {{ data.bank }}</p>
+        <button type="button" routerLink="/dashboard" mat-raised-button>Volver</button>
       </div>
-
+      <div class="col-md-6 text-end">
+        <button class="me-3" mat-mini-fab  [routerLink]="['/editAccount', data.id]" color="primary">
+          <mat-icon>edit</mat-icon>
+        </button>
+        <button mat-mini-fab (click)="openDialog()" color="secondary">
+          <mat-icon> {{ data.active ? 'check_box' : 'check_box_outline_blank' }}</mat-icon>
+        </button>
+      </div>
+    </mat-card-actions>
+  </mat-card>
+</div>
+<!--No data-->
+<div *ngIf="error">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title><p>Ups!</p></mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <div class="row">
+        <div class="col-12">
+          <p>Ha ocurrido un error, la cuenta no existe!</p>
+        </div>
+      </div>
+    </mat-card-content>
+    <mat-card-actions>
       <div class="col-md-6">
-        <p>Tipo de cuenta: {{ data.type === 'C' ? 'Crédito' : 'Débito' }}</p>
-        <p>Últimos cuatro dígitos de la tarjeta: {{ data.lastFourDigits }}</p>
+        <button type="button" routerLink="/dashboard" mat-raised-button>Volver</button>
       </div>
-    </div>
-  </mat-card-content>
-</mat-card>
-
-<br>
-
-<mat-card>
-  <mat-card-header>
-    <mat-card-title>
-      <p>Titular de la cuenta: {{ data.holder }}</p>
-    </mat-card-title>
-  </mat-card-header>
-
-  <mat-card-content>
-    <div class="row">
-      <div class="col-12">
-        <p>SINPE Móvil: {{ data.phone }}</p>
-      </div>
-    </div>
-  </mat-card-content>
-
-  <mat-card-actions>
-    <div class="col-md-6">
-      <button type="button" routerLink="/dashboard" mat-raised-button>Volver</button>
-    </div>
-    <div class="col-md-6 text-end">
-      <button class="me-3" mat-mini-fab  [routerLink]="['/editAccount', data.holder]" color="primary">
-        <mat-icon>edit</mat-icon>
-      </button>
-      <button mat-mini-fab (click)="openDialog()" color="secondary">
-        <mat-icon> {{ data.active === 1 ? 'check_box' : 'check_box_outline_blank' }}</mat-icon>
-      </button>
-    </div>
-  </mat-card-actions>
-
-</mat-card>
-
+    </mat-card-actions>
+  </mat-card>
+</div>
