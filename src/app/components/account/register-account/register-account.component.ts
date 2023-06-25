@@ -9,6 +9,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { RouterModule } from "@angular/router";
+import { AccountService } from 'src/app/services/account-service/account.service';
 
 @Component({
   selector: 'app-register-account',
@@ -33,7 +34,7 @@ export class RegisterAccountComponent {
   public account: FormGroup;
   public isBankAccount = true;
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private accountService: AccountService) {
     this.account = this.fb.group({
       accountName: ['', Validators.required],
       bankAccountType: ['', Validators.required],
@@ -59,7 +60,30 @@ export class RegisterAccountComponent {
 
   public onSubmit() {
     if (this.account.dirty && this.account.valid) {
-      alert('Tu cuenta ha sido registrada correctamente!');
+      const newAccount = {
+        accountName: this.account.value.accountName,
+        bankAccountType: this.account.value.bankAccountType,
+        bankName: this.account.value.bankName,
+        currentBalance: this.account.value.currentBalance,
+        card: this.account.value.card,
+        iban: this.account.value.iban,
+        phoneNumber: this.account.value.phoneNumber,
+        id_user: '11ee10a9-ee93-f6c2-89da-b05cda920d08',
+        active: true
+      };
+
+      console.table(newAccount)
+      console.log(newAccount)
+
+      this.accountService.saveAccount(newAccount).subscribe(
+        () => {
+          alert('¡Tu cuenta ha sido registrada correctamente!');
+        },
+        (error) => {
+          console.error('Error al registrar la cuenta:', error);
+          alert('Error al registrar la cuenta. Por favor, inténtalo de nuevo.');
+        }
+      );
     }
   }
 
