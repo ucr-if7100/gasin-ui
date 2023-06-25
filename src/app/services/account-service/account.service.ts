@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, catchError, throwError } from 'rxjs';
 import { Account } from 'src/app/domain/account/account';
+import { HttpHeaders,HttpResponse  } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root',
@@ -23,8 +24,11 @@ export class AccountService {
     return this.http.get<Account>(`${this.apiUrl}accountNumber/${id}`);
   }
 
-  updateAccount(account: Account): Observable<void> {
-    return this.http.post<void>(`${this.apiUrl}update`, account);
+  updateAccount(id:string ,account: any): Observable<HttpResponse<void>> {
+    console.log(id);
+    const headers = new HttpHeaders().set('Content-Type', 'application/json');
+    console.log(JSON.stringify(account));
+    return this.http.put<void>(`${this.apiUrl}update/${id}`,JSON.stringify(account),{ headers, observe: 'response' });
   }
 
   updateAccountState(id: string, state: boolean): Observable<void> {

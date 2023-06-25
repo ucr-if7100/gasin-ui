@@ -9,7 +9,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { RouterModule } from "@angular/router";
-
+import { AccountService } from 'src/app/services/account-service/account.service';
 @Component({
   selector: 'app-register-account',
   templateUrl: './register-account.component.html',
@@ -33,7 +33,8 @@ export class RegisterAccountComponent {
   public account: FormGroup;
   public isBankAccount = true;
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private accountService: AccountService) {
+
     this.account = this.fb.group({
       accountName: ['', Validators.required],
       bankAccountType: ['', Validators.required],
@@ -58,8 +59,9 @@ export class RegisterAccountComponent {
   }
 
   public onSubmit() {
-    if (this.account.dirty && this.account.valid) {
+    if (this.account.dirty && this.account.valid ) {
       alert('Tu cuenta ha sido registrada correctamente!');
+     //this.accountService.saveAccount(this.account);
     }
   }
 

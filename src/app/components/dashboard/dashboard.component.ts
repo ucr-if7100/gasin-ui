@@ -13,7 +13,7 @@ export class DashboardComponent implements OnInit {
   dataSource!: MatTableDataSource<Account>;
   accounts: Account[] = [];
   oneAccount: Account | null = null;
-  userID: string = "11ee1247-3075-7f38-b4d7-c8d3ffd6ac27";
+  userID: string = "11ee12d5-d176-75c3-9a35-a8a1591622fa";
 
   displayedColumns: string[] = ['Fecha','Descripción', 'Monto'];
 
