@@ -9,6 +9,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { ActivatedRoute, RouterModule } from "@angular/router";
 import { AccountService } from 'src/app/services/account-service/account.service';
+import { UpdateBankAccountDTO } from 'src/app/domain/UpdateBankAccountDTO/UpdateBankAccountDTO';
 
 @Component({
   selector: 'app-edit-account',
@@ -72,14 +73,13 @@ export class EditAccountComponent implements OnInit{
   }
 
   public onSubmit() {
+    const requestBody = new UpdateBankAccountDTO(this.account.controls['accountName'].value, this.account.controls['card'].value,this.account.controls['phoneNumber'].value);
 
-      const requestBody = {
-        accountName: this.account.controls['accountName'].value,
-        phoneNumber: this.account.controls['phoneNumber'].value,
-        card: this.account.controls['card'].value
-      };
-
-    this.accountService.updateAccount(this.accountId,requestBody)
+    this.accountService.updateAccount(this.accountId,requestBody).subscribe(() => {
+      console.log('Solicitud PUT enviada correctamente');
+    }, error => {
+      console.error('Error al enviar la solicitud PUT:', error);
+    });
 
   }
 
