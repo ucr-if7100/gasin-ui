@@ -20,6 +20,8 @@ import { AccountService } from 'src/app/services/account-service/account.service
 import { SuccessDialogComponent } from 'src/app/components/success-dialog/success-dialog.component';
 import { ErrorDialogComponent } from '../../error-dialog/error-dialog.component';
 
+
+
 @Component({
   selector: 'app-register-account',
   templateUrl: './register-account.component.html',
@@ -43,12 +45,14 @@ export class RegisterAccountComponent {
   public account: FormGroup;
   public isBankAccount = true;
 
+
   constructor(
     private fb: FormBuilder,
     private accountService: AccountService,
     private dialog: MatDialog,
     private router: Router
     ) {
+
     this.account = this.fb.group({
       accountName: ['', Validators.required],
       bankAccountType: ['', Validators.required],
@@ -118,6 +122,7 @@ export class RegisterAccountComponent {
   }
 
   public onSubmit() {
+
     if (this.account.dirty && this.account.valid) {
       const newAccount = {
         accountName: this.account.value.accountName,
@@ -139,6 +144,7 @@ export class RegisterAccountComponent {
           this.openErrorModal();
         }
       );
+
     }
   }
 

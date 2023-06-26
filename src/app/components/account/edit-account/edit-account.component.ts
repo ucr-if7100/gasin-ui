@@ -9,6 +9,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { ActivatedRoute, RouterModule } from "@angular/router";
 import { AccountService } from 'src/app/services/account-service/account.service';
+import { UpdateBankAccountDTO } from 'src/app/domain/UpdateBankAccountDTO/UpdateBankAccountDTO';
 
 @Component({
   selector: 'app-edit-account',
@@ -26,6 +27,7 @@ import { AccountService } from 'src/app/services/account-service/account.service
     MatCardModule,
     MatButtonModule,
     RouterModule
+
   ]
 })
 export class EditAccountComponent implements OnInit{
@@ -35,7 +37,6 @@ export class EditAccountComponent implements OnInit{
   public data: any;
   public error = false;
   public isBankAccount = true;
-
   constructor(private fb: FormBuilder, private route: ActivatedRoute, private accountService: AccountService) {
     this.account = this.fb.group({
       accountName: ['', Validators.required],
@@ -61,18 +62,27 @@ export class EditAccountComponent implements OnInit{
 
     this.account.controls['bankAccountType'].disable();
     this.account.controls['iban'].disable();
+
     this.account.controls['currentBalance'].disable();
+
   }
 
   ngOnInit(): void {
     this.accountId = this.route.snapshot.paramMap.get('accountId') as string;
+    this.accountId="11ee12d5-d176-7514-9a35-a8a1591622fa"; //Prueba
     this.loadAccount(this.accountId);
+
   }
 
   public onSubmit() {
-    if (this.account.dirty && this.account.valid) {
-      console.log(this.account.value);
-    }
+    const requestBody = new UpdateBankAccountDTO(this.account.controls['accountName'].value, this.account.controls['card'].value,this.account.controls['phoneNumber'].value);
+
+    this.accountService.updateAccount(this.accountId,requestBody).subscribe(() => {
+      console.log('Solicitud PUT enviada correctamente');
+    }, error => {
+      console.error('Error al enviar la solicitud PUT:', error);
+    });
+
   }
 
   public hasError = (controlName: string, errorName: string) => {
@@ -98,5 +108,6 @@ export class EditAccountComponent implements OnInit{
       this.error = true;
     }
   }
+
 
 }
