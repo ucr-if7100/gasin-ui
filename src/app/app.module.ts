@@ -29,9 +29,13 @@ import { InsertUserComponent } from './user/insert-user/insert-user.component';
 import { UserModule } from './user/user.module';
 import { CategoryModule } from './category/category.module';
 import { Routes } from 'react-router-dom';
+
+import { MatMenuModule } from '@angular/material/menu';
+
 import { AccountService } from './services/account-service/account.service';
 import { SuccessDialogComponent } from './components/success-dialog/success-dialog.component';
 import { ErrorDialogComponent } from './components/error-dialog/error-dialog.component';
+
 
 @NgModule({
   declarations: [
@@ -64,7 +68,9 @@ import { ErrorDialogComponent } from './components/error-dialog/error-dialog.com
     ExpenseModule,
     IncomeModule,
     UserModule,
-    CategoryModule
+    CategoryModule,
+    MatMenuModule
+
   ],
   providers: [
     AccountService

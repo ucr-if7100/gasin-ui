@@ -5,6 +5,8 @@ import { User } from 'src/app/domain/user/user';
 
 
 const Endpoint='http://localhost:8084/api/User';
+const EndpointMember='http://localhost:8084/api/Member';
+
 
 
 const httpOptions = {
@@ -36,4 +38,15 @@ export class UserService {
   update(id:any,user:any){
     return this.http.put(Endpoint+'/update/'+id,user,httpOptions)
   }
+
+  addMember(member:any){
+    console.log(EndpointMember+'/insertMember')
+    return this.http.post(EndpointMember+'/insertMember',member,httpOptions)
+  }
+  getMember(id:String){
+    return this.http.get(EndpointMember+'/getMembers/'+id,httpOptions)
+  }
+
+
+
 }

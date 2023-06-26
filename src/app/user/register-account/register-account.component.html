@@ -1,0 +1,44 @@
+
+<div
+  class="modificar-container"
+  fxLayout="column"
+  fxLayoutAlign="center center"
+  fxLayoutGap="3rem"
+>
+<h1 class="section-heading text-uppercase " style="color: green;" >Matricular Usuario </h1>
+<form  [formGroup]="RegisterAcccountForm" (ngSubmit)="register()" action="#" class="border rounded p-2 form">
+
+
+  <div fxLayout="row" fxLayoutAlign="center none" fxLayoutGap="10rem">
+    <div
+      fxLayout="column"
+      fxLayoutAlign="space-evenly start"
+      fxLayoutGap="8rem"
+    >
+      <div fxLayout="row" fxLayoutGap="10rem">
+        <mat-form-field  class="imput-data">
+          <mat-label>Correo</mat-label>
+          <input matInput formControlName="email"/>
+        </mat-form-field>
+
+      </div>
+
+
+    </div>
+  </div>
+
+  <div
+    fxLayout="row"
+    fxLayoutGap="30rem"
+    fxLayoutAlign="center center"
+  >
+  <div fxLayout="row"  fxLayoutGap="8rem" fxLayoutAlign="center center" class="imput-data">
+    <button class="btnGuardar" type="submit"  aria-label="Example icon button with a menu icon">
+      Registrar
+    </button>
+  </div>
+
+  </div>
+</form>
+</div>
+

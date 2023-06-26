@@ -1,7 +1,7 @@
 
 .btnGuardar{
 
-  background-color:#4A4A4A;
+  background-color:#308710;
   color: white;
   border-radius: 10px;
   padding: 20px;
@@ -19,7 +19,7 @@
 
 .imput-data{
 
-  box-shadow: 0 0 3px  green;
+  box-shadow: 0 0 3px  rgba(208, 210, 208, 0.134);
   border-radius: 20px;
   padding: 10px;
 

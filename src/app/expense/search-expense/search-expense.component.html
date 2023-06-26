@@ -1,0 +1,75 @@
+
+
+<div class="container">
+  <div class="text-center">
+
+    <h1 class="section-heading text-uppercase">Gastos</h1>
+
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Buscar</mat-label>
+      <input matInput placeholder="Ingresa datos" (keyup)="applyFilter($event)" />
+    </mat-form-field>
+  </div>
+  <div class="text-center btn">
+    <button mat-raised-button  class="register-button" routerLink="/insertExpense" routerLinkActive="active">
+      Registrar Gasto
+    </button>
+  </div>
+  <BR>
+
+  <div class="centrarTable">
+    <div class="mat-elevation-z8">
+      <table mat-table [dataSource]="dataSource">
+        <!-- Name Column -->
+        <ng-container matColumnDef="amount">
+          <th mat-header-cell *matHeaderCellDef><b> Monto</b></th>
+          <td mat-cell *matCellDef="let element">
+            {{ element.amount }}</td>
+        </ng-container>
+
+        <!-- Descripcion Column -->
+        <ng-container matColumnDef="description">
+          <th mat-header-cell *matHeaderCellDef><b> Descripción</b></th>
+          <td mat-cell *matCellDef="let element">
+            {{ element.description }}
+          </td>
+        </ng-container>
+
+
+
+
+
+
+                    <!-- action Column -->
+        <ng-container matColumnDef="action">
+          <th mat-header-cell *matHeaderCellDef><b>Opcion</b></th>
+          <td mat-cell *matCellDef="let element">
+            <div class="example-button-row">
+              <div class="example-button-container">
+                <button mat-fab color="primary" routerLink="/updatetExpense/{{element.id}}" aria-label="Example icon button with a delete icon">
+                    <mat-icon>edit</mat-icon>
+                   </button>
+                   <span style="margin-right: 10px;"></span> <!-- Espacio de 10 píxeles entre los botones -->
+
+                   <button mat-fab color="warn" routerLink="/deleteExpense/{{element.id}}" aria-label="Example icon button with a delete icon">
+                    <mat-icon>delete</mat-icon>
+                   </button>
+                   <span style="margin-right: 10px;"></span> <!-- Espacio de 10 píxeles entre los botones -->
+
+                   <button mat-fab color="warn" routerLink="/seeExpense/{{element.id}}" aria-label="Example icon button with a delete icon">
+                    <mat-icon>remove_red_eye</mat-icon>
+                   </button>
+            </div>
+            </div>
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+      </table>
+
+      <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons aria-label="Select page of periodic elements">
+      </mat-paginator>
+    </div>
+  </div>
+</div>
