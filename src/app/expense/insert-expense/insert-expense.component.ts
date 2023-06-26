@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDatepickerInputEvent } from '@angular/material/datepicker';
+import { Router } from '@angular/router';
 import * as moment from 'moment';
 import { Expense } from 'src/app/domain/expense/expense';
 import { CategoryService } from 'src/app/services/category-service/category.service';
@@ -28,16 +29,17 @@ export class InsertExpenseComponent {
     description: "",
     amount: 0,
     date:"",
-    type: 'GASTO',
+    type: 'EXPENSE',
     idCategory:0,
     idAccount:1,
-    idUser:1,
+    idUser:"38400000-8cf0-11bd-b23e-10b96e4ef00d",
     numRefBank:''
   }
 
   expenseForm: FormGroup = new FormGroup({});
 
-  constructor(private fb: FormBuilder,private rest:TransactionService,private service_category:CategoryService) {
+  constructor(private fb: FormBuilder,private rest:TransactionService,private service_category:CategoryService
+    ,private router: Router) {
 
    }
 
@@ -63,10 +65,10 @@ export class InsertExpenseComponent {
       description: ['', Validators.required],
       amount: [0, Validators.required],
       date: ['', Validators.required],
-      type: ['GASTO', Validators.required],
+      type: ['EXPENSE', Validators.required],
       idCategory:[0, Validators.required],
       idAccount:[1],
-      idUser:[1],
+      idUser:["38400000-8cf0-11bd-b23e-10b96e4ef00d"],
       numRefBank:['']
     });
 
@@ -111,10 +113,10 @@ add() {
       description: ['', Validators.required],
       amount: [0, Validators.required],
       date: ['', Validators.required],
-      type: ['GASTO', Validators.required],
+      type: ['EXPENSE', Validators.required],
       idCategory:[, Validators.required],
       idAccount:[1],
-      idUser:[1],
+      idUser:["38400000-8cf0-11bd-b23e-10b96e4ef00d"],
       numRefBank:['']
     });
     Swal.fire(
@@ -122,6 +124,7 @@ add() {
       'Gasto añadido con éxito!',
       'success'
     )
+    this.router.navigate(['/searchExpense']);
   }, (err) => {
     Swal.fire({
       icon: 'error',

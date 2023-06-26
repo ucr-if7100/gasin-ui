@@ -25,6 +25,11 @@ import { UpdateUserComponent } from './update-user/update-user.component';
 import { SeeUserComponent } from './see-user/see-user.component';
 import { ProfileUserComponent } from './profile-user/profile-user.component';
 import { FormsModule } from '@angular/forms';
+import { RegisterAccountComponent } from './register-account/register-account.component';
+import { SearchMemberComponent } from './search-member/search-member/search-member.component';
+import { BrowserModule } from '@angular/platform-browser';
+import { MatNativeDateModule } from '@angular/material/core';
+import { CategoryRoutingModule } from '../category/category-routing.module';
 @NgModule({
   declarations: [
     InsertUserComponent,
@@ -32,7 +37,9 @@ import { FormsModule } from '@angular/forms';
     DeleteUserComponent,
     UpdateUserComponent,
     SeeUserComponent,
-    ProfileUserComponent
+    ProfileUserComponent,
+    RegisterAccountComponent,
+    SearchMemberComponent
   ],
   imports: [
     CommonModule,
@@ -62,7 +69,15 @@ import { FormsModule } from '@angular/forms';
     MatCardModule,
     MatTabsModule,
     MatTableModule,
-    FormsModule
+    FormsModule,
+
+
+
+    BrowserModule,
+
+    MatNativeDateModule,
+    CategoryRoutingModule,
+
 
   ],exports: [UserRoutingModule]
 })

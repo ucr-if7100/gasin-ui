@@ -11,6 +11,12 @@
   </div>
   <BR>
 
+    <div class="text-center btn">
+      <button mat-raised-button  class="register-button" routerLink="/insertCategory" routerLinkActive="active">
+        Registrar Categoria
+      </button>
+    </div>
+
   <div class="centrarTable">
     <div class="mat-elevation-z8">
       <table mat-table [dataSource]="dataSource">
@@ -48,9 +54,6 @@
                    </button>
                    <span style="margin-right: 10px;"></span> <!-- Espacio de 10 píxeles entre los botones -->
 
-                   <button mat-fab color="warn" aria-label="Example icon button with a delete icon">
-                    <mat-icon>remove_red_eye</mat-icon>
-                   </button>
             </div>
             </div>
           </td>

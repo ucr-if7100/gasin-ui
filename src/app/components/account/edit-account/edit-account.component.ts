@@ -63,6 +63,8 @@ export class EditAccountComponent implements OnInit{
     this.account.controls['bankAccountType'].disable();
     this.account.controls['iban'].disable();
 
+    this.account.controls['currentBalance'].disable();
+
   }
 
   ngOnInit(): void {

@@ -1,7 +1,7 @@
 
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Category } from 'src/app/domain/category/category';
 import { CategoryService } from 'src/app/services/category-service/category.service';
 import Swal from 'sweetalert2';
@@ -23,7 +23,8 @@ export class DeleteCategoryComponent {
   constructor(
     private route: ActivatedRoute,
     private fb: FormBuilder,
-    private rest: CategoryService
+    private rest: CategoryService,
+    private router: Router
   ) {
     this.route.params.subscribe(params => {
       this.id = params['id'];
@@ -72,6 +73,7 @@ export class DeleteCategoryComponent {
         'Categoria añadida con éxito!',
         'success'
       );
+      this.router.navigate(['/searchCategory']);
     }, (err) => {
       Swal.fire({
         icon: 'error',
