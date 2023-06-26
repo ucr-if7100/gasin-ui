@@ -1,18 +1,50 @@
 <mat-sidenav-container class="sidebar-container">
-    <mat-sidenav #sidenav [mode]="sidebarMode" [opened]="isSidebarOpen" [fixedInViewport]="true">
-        <mat-nav-list>
-            <a mat-list-item routerLink="/profile" routerLinkActive="active">Perfil</a>
-            <a mat-list-item routerLink="/transactions" routerLinkActive="active">Transacciones</a>
-            <a mat-list-item routerLink="/accounts" routerLinkActive="active">Cuentas Bancarias</a>
-            <a mat-list-item routerLink="/emailForwarding" routerLinkActive="active">Reenvio de correos</a>
-        </mat-nav-list>
-    </mat-sidenav>
-    <mat-sidenav-content>
-        <div class="dashboard-container">
-            <button mat-icon-button (click)="toggleSidebar()" *ngIf="isMobile()">
-                <mat-icon>{{ isSidebarOpen ? 'menu_open' : 'menu' }}</mat-icon>
-            </button>
-            <router-outlet></router-outlet>
-        </div>
-    </mat-sidenav-content>
+
+  <mat-sidenav #sidenav [mode]="sidebarMode" [opened]="isSidebarOpen" [fixedInViewport]="true">
+    <mat-nav-list>
+      <a mat-list-item routerLink="/profile" routerLinkActive="active">Perfil</a>
+      <a mat-list-item routerLink="/emailForwarding" routerLinkActive="active">Reenvio de correos</a>
+      <a mat-menu-item routerLink="searchMember" routerLinkActive="active">
+        <mat-icon>group</mat-icon>
+        <span>Miembros</span>
+      </a>
+      <a mat-list-item  >  <button mat-button [matMenuTriggerFor]="menu" class="menu-button menu-link">
+        Transacciones
+        <mat-icon>arrow_drop_down</mat-icon>
+      </button>
+      </a>
+      <a mat-list-item routerLink="/accounts" routerLinkActive="active">Cuentas Bancarias</a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <div class="dashboard-container">
+      <button mat-icon-button (click)="toggleSidebar()" *ngIf="isMobile()">
+        <mat-icon>{{ isSidebarOpen ? 'menu_open' : 'menu' }}</mat-icon>
+      </button>
+      <router-outlet></router-outlet>
+    </div>
+  </mat-sidenav-content>
 </mat-sidenav-container>
+
+<mat-menu #menu="matMenu" class="custom-menu">
+  <a mat-menu-item routerLink="/searchIncome" routerLinkActive="active">
+    <mat-icon>attach_money</mat-icon>
+    <span>Ingresos</span>
+  </a>
+  <a mat-menu-item routerLink="searchExpense" routerLinkActive="active">
+    <mat-icon>money_off</mat-icon>
+    <span>Gastos</span>
+  </a>
+
+  <a mat-menu-item routerLink="searchCategory" routerLinkActive="active">
+    <mat-icon>local_offer</mat-icon>
+    <span>Categorías</span>
+  </a>
+
+
+
+
+
+
+
+</mat-menu>

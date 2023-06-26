@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { Category } from 'src/app/domain/category/category';
 import { CategoryService } from 'src/app/services/category-service/category.service';
 import Swal from 'sweetalert2';
@@ -16,7 +17,7 @@ export class InsertCategoryComponent {
 
   dataCategory:Category={ }
 
-  constructor(private fb: FormBuilder,private rest:CategoryService) {
+  constructor(private fb: FormBuilder,private rest:CategoryService,private router: Router) {
 
    }
 
@@ -24,7 +25,7 @@ export class InsertCategoryComponent {
 
 
     this.CategoryForm = this.fb.group({
-      id: 1,
+
       name: ['', Validators.required],
       description: ['', Validators.required],
       id_user: [1]
@@ -71,7 +72,11 @@ export class InsertCategoryComponent {
         'Good job!',
         'Categoria añadido con éxito!',
         'success'
+
       )
+
+      this.router.navigate(['/searchCategory']);
+
     }, (err) => {
       Swal.fire({
         icon: 'error',
