@@ -3,8 +3,8 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { User } from 'src/app/domain/user/user';
 
-const Endpoint = 'http://localhost:8085/User';
-const EndpointMember = 'http://localhost:8085/Member';
+const Endpoint = 'http://localhost:8085/users/User';
+const EndpointMember = 'http://localhost:8085/users/Member';
 
 const httpOptions = {
   headers: new HttpHeaders({
