@@ -1,10 +1,10 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { catchError, Observable, of, tap } from 'rxjs';
+import { Observable } from 'rxjs';
 import { User } from 'src/app/domain/user/user';
 
 
-const Endpoint='http://localhost:8084/api/User';
+const Endpoint='http://localhost:8084/users/User';
 
 
 const httpOptions = {
