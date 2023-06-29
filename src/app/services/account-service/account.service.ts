@@ -9,7 +9,7 @@ import { UpdateBankAccountDTO } from 'src/app/domain/UpdateBankAccountDTO/Update
   providedIn: 'root',
 })
 export class AccountService {
-  private apiUrl = 'http://localhost:8085/bank_account/';
+  private apiUrl = 'http://localhost:8081/transactions/bank_account/';
 
   constructor(private http: HttpClient) {}
 
