@@ -1,11 +1,14 @@
 import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
+
 import { EmailForwardingComponent } from "./help/email-forwarding/email-forwarding.component";
-import { CommonModule } from '@angular/common';
 import { DashboardComponent } from "./components/dashboard/dashboard.component";
 import { EditAccountComponent } from "./components/account/edit-account/edit-account.component";
 import { RegisterAccountComponent } from "./components/account/register-account/register-account.component";
 import { ViewAccountComponent } from "./components/account/view-account/view-account.component";
+
+import { CommonModule } from '@angular/common';
+
 
 const routes: Routes = [
     {path: '', redirectTo: '/dashboard', pathMatch: 'full'},
@@ -25,3 +28,4 @@ const routes: Routes = [
 })
 
 export class AppRoutingModule { }
+

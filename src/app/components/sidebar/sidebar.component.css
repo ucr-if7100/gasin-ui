@@ -30,3 +30,30 @@
     }
   }
   
+  .menu-button {
+    padding: 0;
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    color: inherit;
+  }
+  
+  .menu-link {
+    text-decoration: none;
+    color: inherit;
+  }
+  
+  .menu-link:hover,
+  .menu-link:focus {
+    text-decoration: underline;
+  }
+  
+  .menu-link span {
+    margin-right: 4px;
+  }
+  
+  .menu-link mat-icon {
+    margin-left: 4px;
+  }

@@ -24,9 +24,6 @@ export class SidebarComponent implements AfterViewInit, OnDestroy {
   }
 
   ngAfterViewInit() {
-    //this.sidenav.opened = this.isSidebarOpen;
-    //this.sidenav.mode = this.sidebarMode;
-
     this.resizeSubscription = window.addEventListener('resize', () => {
       if (this.isMobile() && !this.isSidebarOpen) {
         this.sidenav.close();
@@ -44,5 +41,9 @@ export class SidebarComponent implements AfterViewInit, OnDestroy {
 
   isMobile() {
     return window.innerWidth <= 768;
+  }
+
+  showSidebarButton(): boolean {
+    return !this.isMobile() || this.isSidebarOpen;
   }
 }

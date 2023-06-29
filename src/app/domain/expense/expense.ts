@@ -2,7 +2,7 @@ export class Expense {
 
   constructor(
     public id?:number,
-    public idUser?:number,
+    public idUser?:String,
     public numRefBank?:String,
     public idAccount?:number,
     public description?:String,

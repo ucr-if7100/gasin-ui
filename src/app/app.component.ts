@@ -12,3 +12,4 @@ export class AppComponent {
     {name: 'Transacciones', href: '/table', icon: 'assignment'}
     ];
 }
+
